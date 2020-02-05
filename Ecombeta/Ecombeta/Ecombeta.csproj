@@ -42,6 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Views\Orders.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="Views\Attendees.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -72,9 +75,6 @@
     <EmbeddedResource Update="Views\OrderList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Orders.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\SignUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -92,5 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Flashcart.cs" />
+    <Compile Remove="Views\Orders.xaml.cs" />
   </ItemGroup>
 </Project>

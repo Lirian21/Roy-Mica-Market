@@ -52,11 +52,11 @@ namespace Ecombeta.Views
         {
             try
             {
-                Orders.Flashsale = true;
+                SingleProductView.Flashsale = true;
                 var btn = (Button)sender;
                 var a = btn.BindingContext;
-                Orders.singleID = Convert.ToInt32(a);
-                await Navigation.PushAsync(new Orders());
+                SingleProductView.singleID = Convert.ToInt32(a);
+                await Navigation.PushAsync(new SingleProductView());
             }
             catch (Exception ex)
             {

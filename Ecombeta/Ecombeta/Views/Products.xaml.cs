@@ -82,11 +82,11 @@ namespace Ecombeta.Views
                 //var Flashmatch = p.Where(m => m.tags != null && m.tags.Any(u => u.name == "Flash Sale's")).ToList();
                 if (Suppliers.tagid == "1486")
                 {
-                    Orders.Flashsale = true;
+                    SingleProductView.Flashsale = true;
                 }
                 else
                 {
-                    Orders.Flashsale = false;
+                    SingleProductView.Flashsale = false;
                 }
 
                 productsListView.FlowItemsSource = p;
@@ -105,8 +105,8 @@ namespace Ecombeta.Views
                 var btn = (Button)sender;
                 var a = btn.BindingContext;
 
-                Orders.singleID = Convert.ToInt32(a);
-                await Navigation.PushAsync(new Orders());
+                SingleProductView.singleID = Convert.ToInt32(a);
+                await Navigation.PushAsync(new SingleProductView());
             }
             catch (Exception ex)
             {
