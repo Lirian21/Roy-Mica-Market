@@ -156,7 +156,7 @@ namespace Ecombeta.Views
                 {
                     Title = "Flash Sales",
                     Icon = "IC7.png",
-                    TargetType = typeof(FlashSale_s)
+                    TargetType = typeof(FlashSales)
                 });
                 menuListz.Add(new MasterPageItem()
                 {

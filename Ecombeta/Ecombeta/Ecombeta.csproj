@@ -94,4 +94,9 @@
     <Compile Remove="Models\Flashcart.cs" />
     <Compile Remove="Views\Orders.xaml.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\FlashSales.xaml.cs">
+      <DependentUpon>FlashSales.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

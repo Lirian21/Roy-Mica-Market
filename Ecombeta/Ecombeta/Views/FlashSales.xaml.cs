@@ -14,10 +14,10 @@ using Microsoft.AppCenter.Analytics;
 namespace Ecombeta.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FlashSale_s : ContentPage
+    public partial class FlashSales : ContentPage
     {
         //Passing in From the App.xaml.cs It takes the Title From the push notification as X then passes it into the Init Method with z then loads the Products under that Tag(Categorie)
-        public FlashSale_s()
+        public FlashSales()
         {
             InitializeComponent();
             try

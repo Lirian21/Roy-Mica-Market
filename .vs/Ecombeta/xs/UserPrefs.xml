@@ -1,14 +1,16 @@
 ﻿<Properties StartupConfiguration="{6C1B28F2-D6C7-47EE-8B14-BC2345E69A84}|Default">
   <MonoDevelop.Ide.ItemProperties.Ecombeta.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecombeta/Ecombeta/App.xaml.cs">
     <Files>
-      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" Line="30" Column="53" />
+      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" Line="159" Column="50" />
       <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml.cs" Line="1" Column="1" />
       <File FileName="Ecombeta/Ecombeta/Views/Products.xaml" Line="1" Column="1" />
-      <File FileName="Ecombeta/Ecombeta/Views/FlashSale's.xaml.cs" Line="59" Column="65" />
+      <File FileName="Ecombeta/Ecombeta/Views/FlashSale's.xaml.cs" Line="26" Column="14" />
       <File FileName="Ecombeta/Ecombeta/Views/Products.xaml.cs" Line="109" Column="65" />
       <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml" Line="113" Column="79" />
       <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" Line="326" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/FlashSales.xaml" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/App.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,13 +18,14 @@
           <Node name="Ecombeta" expanded="True">
             <Node name="Ecombeta" expanded="True">
               <Node name="Views" expanded="True">
-                <Node name="FlashSale's.xaml" expanded="True" />
+                <Node name="FlashSales.xaml" expanded="True" />
                 <Node name="Home.xaml" expanded="True" />
                 <Node name="MainPage.xaml" expanded="True" />
                 <Node name="Products.xaml" expanded="True" />
-                <Node name="SingleProductView.xaml" expanded="True">
-                  <Node name="SingleProductView.xaml.cs" selected="True" />
-                </Node>
+                <Node name="SingleProductView.xaml" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True">
+                <Node name="App.xaml.cs" selected="True" />
               </Node>
             </Node>
           </Node>
