@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{6C1B28F2-D6C7-47EE-8B14-BC2345E69A84}|Default">
+  <MonoDevelop.Ide.ItemProperties.Ecombeta.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecombeta/Ecombeta/Views/Orders.xaml.cs">
+    <Files>
+      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" Line="30" Column="53" />
+      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/Orders.xaml.cs" Line="33" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Ecombeta" expanded="True">
+            <Node name="Ecombeta" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="Home.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="Orders.xaml" expanded="True">
+                  <Node name="Orders.xaml.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

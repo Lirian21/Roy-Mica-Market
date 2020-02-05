@@ -25,12 +25,12 @@ namespace Ecombeta.Views
         RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
 
         #region TemparyVariables
-        public List<WooCommerceNET.WooCommerce.v3.Variation> p;
+        public List<WooCommerceNET.WooCommerce.v3.Variation> VarProduct;
 
         public bool saving;
         public static bool isUnlimted;
         public string title { get; set; }
-        public static Product z;
+        public static Product SProduct;
         public string TempStockStatus;
         public string imagesrc;
         public static VariationImage img;
@@ -57,6 +57,7 @@ namespace Ecombeta.Views
 
         string TempIsAvb;
         public int VarID { get; set; }
+        #endregion
 
         public class ObjectNullConverter : IValueConverter
         {
@@ -118,15 +119,15 @@ namespace Ecombeta.Views
                 productQuantity = 0;
 
                 //Simple
-                z = await wc.Product.Get(singleID);
+                SProduct = await wc.Product.Get(singleID);
 
                 //Variable
-                p = await wc.Product.Variations.GetAll(singleID);
-                if (p != null| p.Count != 0)
+                VarProduct = await wc.Product.Variations.GetAll(singleID);
+                if (VarProduct != null| VarProduct.Count != 0)
                 {
                     TempVarID = singleID;
                 }
-                var xxxx = p;
+                var xxxx = VarProduct;
 
                
              
@@ -141,7 +142,7 @@ namespace Ecombeta.Views
             try
             {
                 var indexer = 0;
-                foreach (var item in z.meta_data)
+                foreach (var item in SProduct.meta_data)
                 {
                     if (item.key == "group_of_quantity")
                     {
@@ -167,25 +168,25 @@ namespace Ecombeta.Views
             {
             
              
-                if (z.stock_quantity <= 0)
+                if (SProduct.stock_quantity <= 0)
                 {
                     TempStockQ = 2;
-                    z.stock_quantity = 2;
-                    z.meta_data[1].value = 1;
+                    SProduct.stock_quantity = 2;
+                    SProduct.meta_data[1].value = 1;
                     TempIsAvb = "Not in stock";
                 }
-                if (z.stock_quantity == null)
+                if (SProduct.stock_quantity == null)
                 {
                     isUnlimted = true;
                     //If Stock is null it means unlimited so 9999999 will be per purchase instance
                     var i = 999999;
-                    z.stock_quantity = i;
+                    SProduct.stock_quantity = i;
                     TempIsAvb = "In Stock";
                 }
                 else
                 {
-                    z._virtual = true;
-                    TempStockQ = Convert.ToInt32(z.stock_quantity);
+                    SProduct._virtual = true;
+                    TempStockQ = Convert.ToInt32(SProduct.stock_quantity);
                 }
 
             }
@@ -197,12 +198,12 @@ namespace Ecombeta.Views
 
             try
             {
-                foreach (var item in p)
+                foreach (var item in VarProduct)
                 {
                     
                
                     int value = 100000;
-                    var StockQ = Convert.ToInt32(z.stock_quantity);
+                    var StockQ = Convert.ToInt32(SProduct.stock_quantity);
                     if (item.stock_quantity <= 0)
                     {
                         TempStockQ = 2;
@@ -217,7 +218,7 @@ namespace Ecombeta.Views
                         TempIsAvb = "In Stock";
                         //If Stock is null it means unlimited so 9999999 will be per purchase instance
                         var i = 999999;
-                        z.stock_quantity = i;
+                        SProduct.stock_quantity = i;
                     }
                     if (item.meta_data[2].value == null)
                     {
@@ -242,7 +243,7 @@ namespace Ecombeta.Views
                     }
                     var xxx = item.meta_data[2].value;
                 }
-                var x = z.price;
+                var x = SProduct.price;
                 Tempprice = Convert.ToDecimal(x);
 
             }
@@ -252,46 +253,46 @@ namespace Ecombeta.Views
             }
             try
             {
-                if (z != null || p != null)
+                if (SProduct != null || VarProduct != null)
                 {
-                    if (z.price_html != null)
+                    if (SProduct.price_html != null)
                     {
-                        z.price_html = "R" + z.regular_price;
-                        if (z.regular_price != null)
+                        SProduct.price_html = "R" + SProduct.regular_price;
+                        if (SProduct.regular_price != null)
                         {
-                            z.price_html = "R" + z.regular_price;
-                            if (z.sale_price != null)
+                            SProduct.price_html = "R" + SProduct.regular_price;
+                            if (SProduct.sale_price != null)
                             {
-                                z.price_html = "From R" + z.regular_price + " To " + "R" + z.sale_price + "On Sale";
+                                SProduct.price_html = "From R" + SProduct.regular_price + " To " + "R" + SProduct.sale_price + "On Sale";
                             }
                         }
                     }
-                    if (z.type == "simple")
+                    if (SProduct.type == "simple")
                     {
 
                         if (Users.Loggedin == false)
                         {
-                            z.purchasable = false;
-                            z.price = 0;
-                            z.price_html = "Please Login to view the Prices";
+                            SProduct.purchasable = false;
+                            SProduct.price = 0;
+                            SProduct.price_html = "Please Login to view the Prices";
                         }
-                        z.downloadable = true;
-                        z._virtual = false;
+                        SProduct.downloadable = true;
+                        SProduct._virtual = false;
                         Title = "Single Product";
-                        variablelistview.ItemsSource = new Product[1] { z };
+                        variablelistview.ItemsSource = new Product[1] { SProduct };
                     }
                     else
                     {
-                        foreach (var z in p)
+                        foreach (var SProduct in VarProduct)
                         {
-                            z.downloadable = false;
-                            z._virtual = true;
-                            //Can use z instead of p[Index] Index just Increments and Then runs threw the loop and changes the details but z is the easier way.
+                            SProduct.downloadable = false;
+                            SProduct._virtual = true;
+                            //Can use SProduct instead of p[Index] Index just Increments and Then runs threw the loop and changes the details but SProduct is the easier way.
                         }
                         index = 0;
                         if (Users.Loggedin == false)
                         {
-                            foreach (var item in p)
+                            foreach (var item in VarProduct)
                             {
                                 item.price = 0;
                                 item.shipping_class_id = "Please Login to view the Prices";
@@ -300,7 +301,7 @@ namespace Ecombeta.Views
                         }
 
                         Title = "Multi Product";//This Doest Work but w.e 
-                        variablelistview.ItemsSource = p;
+                        variablelistview.ItemsSource = VarProduct;
 
 
                     }
@@ -330,7 +331,7 @@ namespace Ecombeta.Views
                    await DisplayAlert("Issue", "Product is out of stock", "Okay");
                     return;
                 }
-                foreach (var item in p)
+                foreach (var item in VarProduct)
                 {
                     if (TempIsAvb == "Not in stock")
                     {
@@ -338,13 +339,13 @@ namespace Ecombeta.Views
                         return;
                     }
                 }
-                if (z.price == null)
+                if (SProduct.price == null)
                 {
-                    priceinprogress = Convert.ToDecimal(z.price_html);
+                    priceinprogress = Convert.ToDecimal(SProduct.price_html);
                 }
                 else
                 {
-                    priceinprogress = Convert.ToDecimal(z.price);
+                    priceinprogress = Convert.ToDecimal(SProduct.price);
                 }
             }
             catch (Exception ex)
@@ -362,9 +363,9 @@ namespace Ecombeta.Views
                 var a = btn.BindingContext;
                 check = Convert.ToInt32(a);
 
-                if (z.type != "simple")
+                if (SProduct.type != "simple")
                 {
-                    foreach (var cp in p)
+                    foreach (var cp in VarProduct)
                     {
                         TempStockStatus = cp.stock_status;
                         if (check == cp.id)
@@ -402,7 +403,7 @@ namespace Ecombeta.Views
 
                             priceinprogress = Convert.ToDecimal(cp.price);
                             imagesrc = cp.image.src;
-                            if (z.price == null)
+                            if (SProduct.price == null)
                             {
                                 Tempprice = Convert.ToDecimal(cp.price);
                                 priceinprogress = Convert.ToDecimal(cp.price);
@@ -412,48 +413,48 @@ namespace Ecombeta.Views
                 }
                 else
                 {
-                    TempStockQ = Convert.ToInt32(z.stock_quantity);
-                    TempStockStatus = z.stock_status;
-                    if (z.price != 0 ||z.price != null)
+                    TempStockQ = Convert.ToInt32(SProduct.stock_quantity);
+                    TempStockStatus = SProduct.stock_status;
+                    if (SProduct.price != 0 ||SProduct.price != null)
                     {
 
                     }
                     else
                     {
-                        Tempprice = Convert.ToDecimal(z.price);
+                        Tempprice = Convert.ToDecimal(SProduct.price);
                     }
                   
-                    if (Convert.ToInt32(z.meta_data[1].value) == 0)
+                    if (Convert.ToInt32(SProduct.meta_data[1].value) == 0)
                     {
                         TempMinQ = 1;
                     }
                     else
                     {
-                        if (z.meta_data[index1].key == "minimum_allowed_quantity")
+                        if (SProduct.meta_data[index1].key == "minimum_allowed_quantity")
                         {
-                            TempMinQ = Convert.ToInt32(z.meta_data[index1].value);
+                            TempMinQ = Convert.ToInt32(SProduct.meta_data[index1].value);
                         }
                         else
                         {
                             index1++;
-                            TempMinQ = Convert.ToInt32(z.meta_data[index1].value);
+                            TempMinQ = Convert.ToInt32(SProduct.meta_data[index1].value);
                         }
                     }
-                    if (z.meta_data[index2].key == "group_of_quantity")
+                    if (SProduct.meta_data[index2].key == "group_of_quantity")
                     {
-                        TempIncrementQ = Convert.ToInt32(z.meta_data[index2].value);
+                        TempIncrementQ = Convert.ToInt32(SProduct.meta_data[index2].value);
                     }
                     else
                     {
                         index2++;
-                        TempIncrementQ = Convert.ToInt32(z.meta_data[index2].value);
+                        TempIncrementQ = Convert.ToInt32(SProduct.meta_data[index2].value);
                     }
-                    imagesrc = z.images[0].src;
+                    imagesrc = SProduct.images[0].src;
                 }
 
                 if (a == null)
                 {
-                    check = Convert.ToInt32(z.id);
+                    check = Convert.ToInt32(SProduct.id);
                 }
                 if (oldlist == null)
                 {
@@ -497,12 +498,12 @@ namespace Ecombeta.Views
                     {
                         if (Flashsale == true)
                         {
-                            Flasholdlitz.Add(new FlashCartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(z.id), Pname = z.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
+                            Flasholdlitz.Add(new FlashCartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(SProduct.id), Pname = SProduct.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
                             await DisplayAlert("Item Added to cart ", "Click again for a Shortcut to the Cart", "Okay");
                         }
                         else
                         {
-                            oldlitz.Add(new Cartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(z.id), Pname = z.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID }); ;
+                            oldlitz.Add(new Cartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(SProduct.id), Pname = SProduct.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID }); ;
                             saving = true;
                             await DisplayAlert("Item Added to cart ", "Click again for a Shortcut to the Cart", "Okay");
                         }
@@ -546,12 +547,12 @@ namespace Ecombeta.Views
                         { 
                            if (Flashsale == true)
                             {
-                                Flasholdlitz.Add(new FlashCartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(z.id), Pname = z.name, Pquantity = productQuantity, variation_id = check , VariantParentID = TempVarID});
+                                Flasholdlitz.Add(new FlashCartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(SProduct.id), Pname = SProduct.name, Pquantity = productQuantity, variation_id = check , VariantParentID = TempVarID});
                                 await DisplayAlert("Item Added to cart ", "Click again for a Shortcut to the Cart", "Okay");
                             }
                             else
                             {
-                                oldlitz.Add(new Cartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(z.id), Pname = z.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
+                                oldlitz.Add(new Cartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(SProduct.id), Pname = SProduct.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
                                 saving = true;
                                 await DisplayAlert("Item Added to cart ", "Click again for a Shortcut to the Cart", "Okay");
                             }
@@ -561,13 +562,13 @@ namespace Ecombeta.Views
                 {
                     if (Flashsale == true)
                     {
-                        Flasholdlitz.Add(new FlashCartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(z.id), Pname = z.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
+                        Flasholdlitz.Add(new FlashCartlist { StockStatus = TempStockStatus, CheckforQuantity = TempIsAvb, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(SProduct.id), Pname = SProduct.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
                         await DisplayAlert("Item Added to cart ", "Click again for a Shortcut to the Cart", "Okay");
 
                     }
                     else
                     {
-                        oldlitz.Add(new Cartlist { StockStatus = TempStockStatus, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(z.id), Pname = z.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
+                        oldlitz.Add(new Cartlist { StockStatus = TempStockStatus, StockQuantity = Convert.ToInt32(TempStockQ), Price = Tempprice, IncrementQ = TempIncrementQ, MinQ = TempMinQ, Totalprice = dolla, Imagesrc = imagesrc, PId = Convert.ToInt32(SProduct.id), Pname = SProduct.name, Pquantity = productQuantity, variation_id = check, VariantParentID = TempVarID });
                         saving = true;
                         await DisplayAlert("Item Added to cart ", "Click again for a Shortcut to the Cart", "Okay");
                    
@@ -665,7 +666,7 @@ namespace Ecombeta.Views
                 {
                     RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
                     WCObject wc = new WCObject(rest);
-                    variablelistview.ItemsSource = p;
+                    variablelistview.ItemsSource = VarProduct;
                 }
                 catch (Exception e)
                 {
@@ -683,11 +684,11 @@ namespace Ecombeta.Views
             try
             {
                 //Replaces all the stupid HTML tags that come along with the Description
-                foreach (var item in p)
+                foreach (var item in VarProduct)
                 {
                   item.description = item.description.Replace("<li>","").Replace("<br />","").Replace("<p>", "").Replace("</ol>", "").Replace("<ol>","").Replace("<h4>","").Replace("</h4>", "").Replace("<ul>", "").Replace("<li>'", "").Replace("<ol>", "").Replace("<strong>", "").Replace("<span>", "").Replace("<a>", "").Replace("<i>", "").Replace("</p>", "").Replace("</ul>", "").Replace("</li>", "");
                 }
-                  z.description = z.description.Replace("<li>", "").Replace("<br />", "").Replace("<p>", "").Replace("</ol>", "").Replace("<ol>", "").Replace("<h4>", "").Replace("</h4>", "").Replace("<ul>", "").Replace("<li>'", "").Replace("<ol>", "").Replace("<strong>", "").Replace("<span>", "").Replace("<a>", "").Replace("<i>", "").Replace("</p>", "").Replace("</ul>", "").Replace("</li>", "");
+                SProduct.description = SProduct.description.Replace("<li>", "").Replace("<br />", "").Replace("<p>", "").Replace("</ol>", "").Replace("<ol>", "").Replace("<h4>", "").Replace("</h4>", "").Replace("<ul>", "").Replace("<li>'", "").Replace("<ol>", "").Replace("<strong>", "").Replace("<span>", "").Replace("<a>", "").Replace("<i>", "").Replace("</p>", "").Replace("</ul>", "").Replace("</li>", "");
 
             }
             catch (Exception ex)
