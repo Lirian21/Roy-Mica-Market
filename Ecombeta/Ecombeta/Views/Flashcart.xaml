@@ -10,7 +10,24 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="Ecombeta.Views.Flashcart">
     <ContentPage.Content>
-        <StackLayout Padding="5" Margin="15" BackgroundColor="White">
+         <AbsoluteLayout>
+             <StackLayout
+        x:Name="LoadingOverlay"
+        IsVisible="False"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="Black" Opacity="0.5">
+        <ActivityIndicator
+            x:Name="TaskLoader"
+            IsRunning="False"
+            Scale="4"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Color="White"/>
+    </StackLayout>
+        <StackLayout Padding="5"  AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All" Margin="15" BackgroundColor="White">
+         
             <ListView x:Name="cartView"
                       HasUnevenRows="True"   
                       
@@ -61,5 +78,6 @@
                 <Button Margin="2" TextColor="white" BorderColor="#0088d3" BackgroundColor="#0088d3" CornerRadius="10" Padding="10" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" Text="Buy Now!" Clicked="ImageButton_Clicked" />
             </StackLayout>
         </StackLayout>
+             </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

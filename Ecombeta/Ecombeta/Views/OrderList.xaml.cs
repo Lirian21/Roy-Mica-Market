@@ -35,6 +35,8 @@ namespace Ecombeta.Views
         {
             try
             {
+                TaskLoader.IsRunning = true;
+                LoadingOverlay.IsVisible = true;
                 //Displaying every order the user has made based on there id So Customer ID
                 var p = await App.WooObject.Order.GetAll(new Dictionary<string, string>()
                 {
@@ -49,6 +51,8 @@ namespace Ecombeta.Views
                 //        BoughtI.Add(new Bought { name = z.name });
                 //    }
                 //
+                TaskLoader.IsRunning = false;
+                LoadingOverlay.IsVisible = false;
             }
             catch (Exception ex)
             {

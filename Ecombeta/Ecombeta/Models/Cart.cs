@@ -13,10 +13,6 @@ namespace Ecombeta.Models
     [DataContract]
     public class Cartlist : System.ComponentModel.INotifyPropertyChanged
     {
-
-
-     
-
         public event PropertyChangedEventHandler PropertyChanged;
         [DataMember]
         public string Pname { get; set; }

@@ -8,6 +8,21 @@
              BackgroundImageSource="https://mm-app.co.za/wp-content/uploads/2019/12/OrangeBluepoly.jpg"
              x:Class="Ecombeta.Views.Login">
     <ContentPage.Content>
+           <AbsoluteLayout>
+             <StackLayout
+        x:Name="LoadingOverlay"
+        IsVisible="False"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="Black" Opacity="0.5">
+        <ActivityIndicator
+            x:Name="TaskLoader"
+            IsRunning="False"
+            Scale="4"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Color="White"/>
+    </StackLayout>
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid>
                 
@@ -36,5 +51,6 @@
                 </StackLayout>
             </Grid>
         </StackLayout>
+               </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

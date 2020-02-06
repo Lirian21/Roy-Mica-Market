@@ -24,22 +24,7 @@ namespace Ecombeta.Views
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Products : ContentPage
-    {
-        public List<Productimport> FinalProducts { get; set; }
-
-        List<Product> tempProduct;
-
-        //I was trying to use Obseravbles for other type if views
-        public ObservableCollection<Product> _items;
-        ObservableCollection<Product> Items
-        {
-            get { return _items; }
-            set
-            {
-                _items = value; OnPropertyChanged("Items");
-            }
-        }   
-        public List<Product> a;
+    {       
         public Products()
         {
             InitializeComponent();
@@ -71,25 +56,24 @@ namespace Ecombeta.Views
             try
             {
                 //I need to debug the app when I have a machine but The Variable products(More then one) arent loading on Orders wich is the Single product basicly 
-                RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-                WCObject wc = new WCObject(rest);
+                 WCObject wc = new WCObject(GlobalVariable.Init.rest);
 
-                var p = await wc.Product.GetAll(new Dictionary<string, string>() {
-                    {"tag", Suppliers.tagid },
+                var products = await wc.Product.GetAll(new Dictionary<string, string>() {
+                    {"tag", SuppliersVariables.Init.TagID },
                     { "per_page", "100" } }); ;
 
 
                 //var Flashmatch = p.Where(m => m.tags != null && m.tags.Any(u => u.name == "Flash Sale's")).ToList();
-                if (Suppliers.tagid == "1486")
+                if (SuppliersVariables.Init.TagID == "1486")
                 {
-                    SingleProductView.Flashsale = true;
+                    ProductProperties.Init.Flashsale = true;
                 }
                 else
                 {
-                    SingleProductView.Flashsale = false;
+                    ProductProperties.Init.Flashsale = false;
                 }
 
-                productsListView.FlowItemsSource = p;
+                productsListView.FlowItemsSource = products;
             }
             catch (Exception ex)
             {
@@ -105,7 +89,7 @@ namespace Ecombeta.Views
                 var btn = (Button)sender;
                 var a = btn.BindingContext;
 
-                SingleProductView.singleID = Convert.ToInt32(a);
+                ProductProperties.Init.singleID = Convert.ToInt32(a);
                 await Navigation.PushAsync(new SingleProductView());
             }
             catch (Exception ex)

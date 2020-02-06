@@ -98,7 +98,7 @@
 
                                         <Label HorizontalTextAlignment="Center" Text="{Binding stock_status}"  TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
                                         <ScrollView  Orientation="Vertical" >
-                                            <Label  Text="{x:Binding description }"  TextType="Text" FontSize="Small" RelativeLayout.HeightConstraint="60" HorizontalTextAlignment="Center"/>
+                                            <Label  Text="{Binding description }"  TextType="Text" FontSize="Small" RelativeLayout.HeightConstraint="60" HorizontalTextAlignment="Center"/>
                                         </ScrollView>
                                         <Label HorizontalTextAlignment="Center" Text="{Binding sku, StringFormat='SKU {0:F0}'}" FontSize="Medium"></Label>
                                     

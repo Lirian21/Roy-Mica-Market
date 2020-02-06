@@ -13,9 +13,8 @@ namespace Ecombeta.iOS
         public override UITableViewCell GetCell(Xamarin.Forms.Cell item, UITableViewCell reusableCell, UITableView tv)
         {
             var cell = base.GetCell(item, reusableCell, tv);
-           
-              
-            cell.SelectedBackgroundView = new UIView { BackgroundColor = UIColor.FromRGBA(220,220,220,0) };
+            cell.SelectedBackgroundView = new UIView { BackgroundColor = UIColor.FromRGBA(255, 255, 255, 0) };
+
 
             return cell;
         }

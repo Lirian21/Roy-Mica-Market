@@ -21,8 +21,7 @@ namespace Ecombeta.Views
     public partial class MainPage : ContentPage
     {
         public bool Hide;
-        WelcomePageVM welcomePageVM;
-        LoginViewModel loginViewModel;
+      
         public MainPage()
         {
             try

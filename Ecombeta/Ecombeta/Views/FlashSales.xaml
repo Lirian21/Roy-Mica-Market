@@ -10,8 +10,9 @@
              x:Class="Ecombeta.Views.FlashSales">
                 
     <ContentPage.Content>
+
 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-    <WebView Source="https://mm-app.co.za/sample-page/" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="Webview" WidthRequest="1000" HeightRequest="380" />
+    <WebView Source="https://mm-app.co.za/sample-page/" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" x:Name="Webview" WidthRequest="1000" HeightRequest="380" />
         <flv:FlowListView BackgroundColor="white" FlowColumnCount="1" HasUnevenRows="True"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  SeparatorVisibility="None" SeparatorColor="Black" x:Name="productsListView" >
             <flv:FlowListView.FlowColumnTemplate>
                 <DataTemplate>
@@ -28,7 +29,7 @@
                                             Source = "{Binding images[0].src}" />
 
                             <Label Text="{Binding price,   StringFormat='R{0:F0}'}" TextColor="Red" FontAttributes="Bold" FontSize="Medium"  HorizontalTextAlignment="Center"/>
-                            <Label Text="{x:Binding sku,  StringFormat='SKU{0:F0}'}" FontSize="Medium" FontAttributes="Bold"  HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding sku,  StringFormat='SKU{0:F0}'}" FontSize="Medium" FontAttributes="Bold"  HorizontalTextAlignment="Center"/>
                             <Button BorderColor="#0088d3" BackgroundColor="#0088d3" TextColor="white" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Padding="10" CornerRadius="10" Text="View Product" BindingContext="{Binding id}" Clicked="ProductClicked"></Button>
                         </StackLayout>
                       
@@ -36,5 +37,6 @@
             </flv:FlowListView.FlowColumnTemplate>
         </flv:FlowListView>
           </StackLayout>
+         
         </ContentPage.Content>
 </ContentPage>

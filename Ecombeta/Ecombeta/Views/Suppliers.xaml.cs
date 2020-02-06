@@ -20,17 +20,6 @@ namespace Ecombeta.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Suppliers : ContentPage
     {
-        RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-      
-        //There is about 98 Suppliers currentley its just a Image with a Button that passes a ID to use to get all Products under that Supplier Its basiclly just a Categorie 
-
-        // var products = await wc.Tag.GetAll();
-        public static string tagid { set; get; }
-        public ICommand PinButtonCommand { get; private set; }
-        public List<ProductTag> x;
-        public List<WooCommerceNET.WooCommerce.v3.ProductTag> Tags;
-        public List<Customer> a;
-
         public Suppliers()
         {
             try
@@ -82,16 +71,20 @@ namespace Ecombeta.Views
         {
             try
             {
+                TaskLoader.IsRunning = true;
+                LoadingOverlay.IsVisible = true;
 
-                WCObject wc = new WCObject(rest);
+                WCObject wc = new WCObject(GlobalVariable.Init.rest);
                 //TODO only Fetch once
-                Tags = await wc.Tag.GetAll(new Dictionary<string, string>() {
+                SuppliersVariables.Init.Tags = await wc.Tag.GetAll(new Dictionary<string, string>() {
                      { "per_page", "99" } });
-                    x = Tags;
+                 
                     
               
-                productsListView.FlowItemsSource = Tags;
-             
+                productsListView.FlowItemsSource = SuppliersVariables.Init.Tags;
+
+                LoadingOverlay.IsVisible = false;
+                TaskLoader.IsRunning = false;
             }
             catch (Exception ex)
             {
@@ -107,7 +100,7 @@ namespace Ecombeta.Views
                 var btn = (Button)sender;
                 var product = btn.BindingContext;
 
-                tagid = product.ToString();
+                SuppliersVariables.Init.TagID = product.ToString();
 
                
                 var masterDetailPage = new Home();
@@ -129,9 +122,9 @@ namespace Ecombeta.Views
 
                 
                 if (string.IsNullOrWhiteSpace(e.NewTextValue))
-                    productsListView.FlowItemsSource = Tags;
+                    productsListView.FlowItemsSource = SuppliersVariables.Init.Tags;
                 else
-                     productsListView.FlowItemsSource = Tags.Where(i => i.name.ToLower().Contains(e.NewTextValue)).ToList();
+                     productsListView.FlowItemsSource = SuppliersVariables.Init.Tags.Where(i => i.name.ToLower().Contains(e.NewTextValue)).ToList();
                   
         
 

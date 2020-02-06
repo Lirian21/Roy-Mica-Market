@@ -25,147 +25,81 @@ namespace Ecombeta.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : MasterDetailPage, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public string flashID;
-        public static List<MasterPageItem> menuListz { get; set; }
-        private string _message;
-        public string Message
-        {
-            get
-            {
-                return _message;
-            }
-            set
-            {
-                if (_message != value)
-                {
-                    _message = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-        //Encapsulation wich I dont understand RIP.  Hope i'm doing this right would appreciate feedback on this one. (I want it to also Show the Display alert even if the same Value gets sent in so Lets say the Id is 2 and I send another Notification with another Id of 2 5 minutes later then it should show again)
-        private string _titlemessage;
-        public string TitleMessage
-        {
-            get
-            {
-                return _titlemessage;
-            }
-            set
-            {
-                if (_titlemessage != value)
-                {
-                    _titlemessage = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
-
-        async void HandleCustomEvent(object sender, PropertyChangedEventArgs a)
-        {
-            try
-            {
-                //This is my Scuff way of getting live Supplier Changes from the Firebase Network
-                var y = await App.Current.MainPage.DisplayAlert(TitleMessage, Message, "Go Sale", "ok");
-               
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-            }
-        }
-
-
-        protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            try
-            {
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                }
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-            }
-        }
         public Home()
         {
             try
             {
-                //This is just the Menu
-          
+                
+
+
                 InitializeComponent();
                 NavigationPage.SetHasNavigationBar(this, false);
-                this.PropertyChanged += HandleCustomEvent;
+                HomeVariables.Init.PropertyChanged += HomeVariables.Init.HandleCustomEvent;
 
-                menuListz = new List<MasterPageItem>();
+                HomeVariables.Init.menuListz = new List<MasterPageItem>();
                 // Adding menu items to menuList and you can define title ,page and icon  
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Home",
                     Icon = "IC3.png",
                     TargetType = typeof(MainPage)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Login",
                     Icon = "IC8.png",
                     TargetType = typeof(Login)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Suppliers",
                     Icon = "IC6.png",
                     TargetType = typeof(Suppliers)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Orders",
                     Icon = "IC5.png",
                     TargetType = typeof(OrderList)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Cart",
                     Icon = "IC1.png",
                     TargetType = typeof(Cart)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Attendees",
                     Icon = "IC4.png",
                     TargetType = typeof(Attendees)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Itinerary",
                     Icon = "IC2.png",
                     TargetType = typeof(itinerary)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Gala Seating",
                     Icon = "IC9.png",
                     TargetType = typeof(Gala)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Flash Sales",
                     Icon = "IC7.png",
                     TargetType = typeof(FlashSales)
                 });
-                menuListz.Add(new MasterPageItem()
+                HomeVariables.Init.menuListz.Add(new MasterPageItem()
                 {
                     Title = "Flash Cart",
                     Icon = "IC1.png",
                     TargetType = typeof(Flashcart)
                 });
                 // Setting our list to be ItemSource for ListView in MainPage.xaml  
-                navigationDrawerList.ItemsSource = menuListz;
+                navigationDrawerList.ItemsSource = HomeVariables.Init.menuListz;
                 // Initial navigation, this can be used for our home page  
                 Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(MainPage)));
             }
@@ -256,7 +190,7 @@ namespace Ecombeta.Views
         {
 
             // Setting our list to be ItemSource for ListView in MainPage.xaml  
-            navigationDrawerList.ItemsSource = menuListz;
+            navigationDrawerList.ItemsSource = HomeVariables.Init.menuListz;
             // Initial navigation, this can be used for our home page  
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(MainPage)));
         }

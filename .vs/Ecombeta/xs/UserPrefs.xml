@@ -1,40 +1,59 @@
-﻿<Properties StartupConfiguration="{6C1B28F2-D6C7-47EE-8B14-BC2345E69A84}|Default">
-  <MonoDevelop.Ide.ItemProperties.Ecombeta.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Ecombeta/Ecombeta/App.xaml.cs">
+﻿<Properties StartupConfiguration="{4E168FFD-E7E7-478F-9756-7EB9043D01A2}|Default">
+  <MonoDevelop.Ide.ItemProperties.Ecombeta.Android PreferredExecutionTarget="Android.4TE7N16617000755" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecombeta/Ecombeta/Views/MainPage.xaml">
     <Files>
-      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" Line="159" Column="50" />
-      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="Ecombeta/Ecombeta/Views/Products.xaml" Line="1" Column="1" />
-      <File FileName="Ecombeta/Ecombeta/Views/FlashSale's.xaml.cs" Line="26" Column="14" />
-      <File FileName="Ecombeta/Ecombeta/Views/Products.xaml.cs" Line="109" Column="65" />
-      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml" Line="113" Column="79" />
-      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" Line="326" Column="1" />
-      <File FileName="Ecombeta/Ecombeta/Views/FlashSales.xaml" Line="1" Column="1" />
-      <File FileName="Ecombeta/Ecombeta/App.xaml.cs" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Models/VariableListings.cs" Line="208" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/Suppliers.xaml" Line="32" Column="60" />
+      <File FileName="Ecombeta/Ecombeta/Services/WoocommerceAPI.cs" Line="21" Column="184" />
+      <File FileName="Ecombeta/Ecombeta/Views/FlashSales.xaml.cs" Line="58" Column="42" />
+      <File FileName="Ecombeta/Ecombeta/App.xaml.cs" Line="364" Column="51" />
+      <File FileName="Ecombeta/Ecombeta/Views/Cart.xaml.cs" Line="404" Column="30" />
+      <File FileName="Ecombeta/Ecombeta/Views/Flashcart.xaml.cs" Line="385" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/OrderList.xaml" Line="32" Column="26" />
+      <File FileName="Ecombeta/Ecombeta.iOS/ViewCellRendererForiOS.cs" Line="19" Column="25" />
+      <File FileName="Ecombeta/Ecombeta.iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/Flashcart.xaml" Line="29" Column="41" />
+      <File FileName="Ecombeta/Ecombeta/Views/Cart.xaml" Line="44" Column="33" />
+      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" Line="188" Column="1" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Models/Cart.cs" Line="15" Column="6" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml.cs" Line="18" Column="34" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/Suppliers.xaml.cs" Line="22" Column="6" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/Products.xaml.cs" Line="92" Column="40" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" Line="184" Column="1" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/OrderList.xaml.cs" Line="53" Column="19" NotebookId="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml" Line="21" Column="17" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Ecombeta" expanded="True">
             <Node name="Ecombeta" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Cart.xaml" expanded="True" />
+                <Node name="Flashcart.xaml" expanded="True" />
                 <Node name="FlashSales.xaml" expanded="True" />
                 <Node name="Home.xaml" expanded="True" />
-                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="Login.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True" selected="True" />
+                <Node name="OrderList.xaml" expanded="True" />
                 <Node name="Products.xaml" expanded="True" />
                 <Node name="SingleProductView.xaml" expanded="True" />
+                <Node name="Suppliers.xaml" expanded="True" />
               </Node>
-              <Node name="App.xaml" expanded="True">
-                <Node name="App.xaml.cs" selected="True" />
-              </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
+            <Node name="Ecombeta.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Ecombeta.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.975d3e76012e3c4871303e1126bdd77c5b6b362f" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

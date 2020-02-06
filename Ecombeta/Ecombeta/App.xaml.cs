@@ -71,8 +71,8 @@ namespace Ecombeta
                                 Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                                 {
 
-                                    mPage.Message = $"{p.Data["body"]}";
-                                    mPage.TitleMessage = $"{p.Data["title"]}";
+                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
+                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                                 });
                             }
                         }
@@ -95,7 +95,7 @@ namespace Ecombeta
                         {
                             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                             {
-                                mPage.Message = p.Identifier;
+                                HomeVariables.Init.Message = p.Identifier;
                             });
                         }
                         else if (p.Data.ContainsKey("color"))
@@ -113,7 +113,7 @@ namespace Ecombeta
                         {
                             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                             {
-                                mPage.TitleMessage = $"{p.Data["title"]}";
+                                HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                             });
                         }
                     };
@@ -214,8 +214,8 @@ namespace Ecombeta
                             {
                                 Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                                 {
-                                    mPage.Message = $"{p.Data["body"]}";
-                                    mPage.TitleMessage = $"{p.Data["title"]}";
+                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
+                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                                 });
                             }
                         }
@@ -238,7 +238,7 @@ namespace Ecombeta
                         {
                             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                             {
-                                mPage.Message = p.Identifier;
+                                HomeVariables.Init.Message = p.Identifier;
                             });
                         }
                         else if (p.Data.ContainsKey("color"))
@@ -255,7 +255,7 @@ namespace Ecombeta
                         {
                             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                             {
-                                mPage.TitleMessage = $"{p.Data["title"]}";
+                                HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                             });
                         }
                     };
@@ -320,8 +320,8 @@ namespace Ecombeta
                             {
                                 Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                                 {
-                                    mPage.Message = $"{p.Data["body"]}";
-                                    mPage.TitleMessage = $"{p.Data["title"]}";
+                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
+                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                                 });
                             }
                         }
@@ -343,8 +343,8 @@ namespace Ecombeta
                         if (!string.IsNullOrEmpty(p.Identifier))
                         {
                             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
-                            { 
-                                mPage.Message = p.Identifier;
+                            {
+                                HomeVariables.Init.Message = p.Identifier;
                             });
                         }
                         else if (p.Data.ContainsKey("color"))
@@ -361,7 +361,7 @@ namespace Ecombeta
                         {
                             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
                             {
-                                mPage.TitleMessage = $"{p.Data["title"]}";
+                                HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                             });
                         }
                     };

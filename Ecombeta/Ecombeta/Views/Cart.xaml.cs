@@ -25,10 +25,10 @@ namespace Ecombeta.Views
     public partial class Cart : ContentPage, System.ComponentModel.INotifyPropertyChanged
     {
         List<OrderLineItem> Lineitems;
-        List<Cartlist> z;
+        List<Cartlist> SimpleCartlist;
         ItemList items;
-        bool NoMore;
-        bool spam;
+        bool ProductBoughtOut;
+        bool SpamClick;
         List<string> Productname;
         public int currentID;
         public WooCommerceNET.WooCommerce.v3.Product SingleProduct;
@@ -36,8 +36,7 @@ namespace Ecombeta.Views
         public int CurrentListItem;
 
 
-        RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-
+       
         public Cart()
         {
             try
@@ -46,7 +45,7 @@ namespace Ecombeta.Views
                 InitializeComponent();
 
                 var x = FullCart.Cartlistz;
-                z = x;
+                SimpleCartlist = x;
                 if ( x?.Any() != true || x.Any() != true || x.Count() == 0)
                 {
                     CartPersistance CartP = new CartPersistance();
@@ -77,7 +76,7 @@ namespace Ecombeta.Views
         }
 
         public async Task Init() {
-            spam = false;
+            SpamClick = false;
             Backgroundimage.BackgroundImageSource = "https://mm-app.co.za/wp-content/uploads/2019/12/OrangeBluepoly.jpg";
         }
 
@@ -165,7 +164,7 @@ namespace Ecombeta.Views
                 var a = btn.BindingContext;
                 check = Convert.ToInt32(a);
 
-                foreach (var item in z)
+                foreach (var item in SimpleCartlist)
                 {
                     if (check == item.PId)
                     {
@@ -183,8 +182,9 @@ namespace Ecombeta.Views
         {
             try
             {
+
                 //You cant checkout if your not logged in There are no Guest Checkouts(I can But would rather not)
-                if (Users.Loggedin == true && spam == false)
+                if (Users.Loggedin == true && SpamClick == false)
                 {
 
                     if (Lineitems == null)
@@ -192,14 +192,13 @@ namespace Ecombeta.Views
                         Lineitems = new List<OrderLineItem>();
                     }
 
-                    RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v2/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-                    WooCommerceNET.WooCommerce.v2.WCObject wc = new WooCommerceNET.WooCommerce.v2.WCObject(rest);
+                     WooCommerceNET.WooCommerce.v2.WCObject wc = new WooCommerceNET.WooCommerce.v2.WCObject(GlobalVariable.Init.rest);
 
                     await IsInStock();
                     var order = new WooCommerceNET.WooCommerce.v2.Order() { status = "on-hold", customer_id = Users.CId };
-                    foreach (var item in z)
+                    foreach (var item in SimpleCartlist)
                     {
-                        if (z.Any(i => i.InStock == false))
+                        if (SimpleCartlist.Any(i => i.InStock == false))
                         {
                             var yx = await DisplayAlert("Whoops", "One or more Item is out of Stock Please check and try again", "Back to Cart", "Home");
                             if (yx)
@@ -214,7 +213,7 @@ namespace Ecombeta.Views
                             }
 
                         }
-                        else if (z.All(i => i.InStock == true))
+                        else if (SimpleCartlist.All(i => i.InStock == true))
                         {
                             if (item.StockStatus == "instock")
                             {
@@ -225,7 +224,7 @@ namespace Ecombeta.Views
                                 }
                                 if (item.StockQuantity == 0)
                                 {
-                                    NoMore = true;
+                                    ProductBoughtOut = true;
                                     Productname.Add(item.Pname);
                                 }
                                 order.line_items = order.line_items ?? new List<OrderLineItem>();
@@ -249,7 +248,7 @@ namespace Ecombeta.Views
                        
                     }
 
-                    if (NoMore)
+                    if (ProductBoughtOut)
                     {
                         var yx = await DisplayAlert("Order Cant be Placed", $"Not enough stock for {Productname}", "Back to Cart", "Home");
                         if (yx)
@@ -263,11 +262,11 @@ namespace Ecombeta.Views
                             Application.Current.MainPage = masterDetailPage;
                         }
                     }
-                    else if (z.All(i => i.InStock == true))
+                    else if (SimpleCartlist.All(i => i.InStock == true))
                     {
-                        if (items != null && spam == false)
+                        if (items != null && SpamClick == false)
                         {
-                            spam = true;
+                            SpamClick = true;
                             await wc.Order.Add(order);
                             ActivityIndicator activityIndicator = new ActivityIndicator { IsRunning = true, HeightRequest = 100 , WidthRequest = 100};
                             Preferences.Clear("Cart");
@@ -284,13 +283,13 @@ namespace Ecombeta.Views
                             masterDetailPage.Detail = new NavigationPage(new CartEmprty());
                             Application.Current.MainPage = masterDetailPage;
                         }
-                        spam = true;
+                        SpamClick = true;
                     }
                
                 }
                 else
                 {   
-                    if (spam == true)
+                    if (SpamClick == true)
                     {
                         await DisplayAlert("Woops", "Your trying to order twice", "Ok");
                     }
@@ -318,9 +317,11 @@ namespace Ecombeta.Views
 
         public async Task IsInStock()
         {
-            foreach (var CartItem in z)
+            TaskLoader.IsRunning = true;
+            LoadingOverlay.IsVisible = true;
+            foreach (var CartItem in SimpleCartlist)
             {
-                WooCommerceNET.WooCommerce.v3.WCObject wc = new WooCommerceNET.WooCommerce.v3.WCObject(rest);
+                WooCommerceNET.WooCommerce.v3.WCObject wc = new WooCommerceNET.WooCommerce.v3.WCObject(GlobalVariable.Init.rest);
 
                 SingleProduct = await wc.Product.Get(CartItem.PId);
 
@@ -337,6 +338,8 @@ namespace Ecombeta.Views
                     await VariableCheck();
                 }
             }
+            TaskLoader.IsRunning = false; 
+            LoadingOverlay.IsVisible = false;
         }
 
 
@@ -344,7 +347,7 @@ namespace Ecombeta.Views
         {
             try
             {
-                foreach (var CartItem in z)
+                foreach (var CartItem in SimpleCartlist)
                 {
                     if (CurrentListItem == CartItem.PId)
                     {
@@ -388,7 +391,7 @@ namespace Ecombeta.Views
         {
             try
             {
-                foreach (var CartItem in z)
+                foreach (var CartItem in SimpleCartlist)
                 {
                     if (CurrentListItem == CartItem.PId)
                     {

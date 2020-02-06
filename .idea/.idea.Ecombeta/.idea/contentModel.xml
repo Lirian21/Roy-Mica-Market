@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.arch.lifecycle.runtime/1.1.1.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.arch.lifecycle.viewmodel/1.1.1.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.animated.vector.drawable/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.compat/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.coordinaterlayout/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.design/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.media.compat/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.transition/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.v7.appcompat/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.v7.recyclerview/28.0.0.3/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.versionedparcelable/28.0.0.3/proguard/monoandroid90" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.firebase.common/71.1610.0/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.firebase.messaging/71.1740.0/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.forms/4.4.0.991537/build/MonoAndroid10" t="Include">
+      <e p="proguard.cfg" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.googleplayservices.base/71.1610.0/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xamarin.googleplayservices.basement/71.1620.0/proguard/monoandroid90/proguard.txt" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Ecombeta/Ecombeta" t="IncludeRecursive">
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="BgConverter.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controls" t="Include">
+          <e p="BorderlessEntry.cs" t="Include" />
+        </e>
+        <e p="Ecombeta.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="DoubleExtensions.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="MessengingCenterAlert.cs" t="Include" />
+          <e p="ObservableObject.cs" t="Include" />
+          <e p="ObservableRangeCollection.cs" t="Include" />
+        </e>
+        <e p="Images" t="Include">
+          <e p="Bluepoly.jpg" t="Include" />
+          <e p="Icons" t="Include">
+            <e p="Cart.png" t="Include" />
+            <e p="Home.png" t="Include" />
+            <e p="Login.png" t="Include" />
+            <e p="Orders.png" t="Include" />
+            <e p="Supplier.png" t="Include" />
+          </e>
+          <e p="OrangeBluepoly.jpg" t="Include" />
+          <e p="Orangepoly.jpg" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Cart.cs" t="Include" />
+          <e p="FetchCustomers.cs" t="Include" />
+          <e p="FlashCartlist.cs" t="Include" />
+          <e p="HomeMenuItem.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
+          <e p="MasterPageItem.cs" t="Include" />
+          <e p="Order.cs" t="Include" />
+          <e p="Product.cs" t="Include" />
+          <e p="users.cs" t="Include" />
+          <e p="VariableListings.cs" t="Include" />
+          <e p="WpApiCredentials.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="App.xaml.g.cs" t="Include" />
+              <e p="Ecombeta.AssemblyInfo.cs" t="Include" />
+              <e p="Views" t="Include">
+                <e p="Attendees.xaml.g.cs" t="Include" />
+                <e p="Cart.xaml.g.cs" t="Include" />
+                <e p="CartEmprty.xaml.g.cs" t="Include" />
+                <e p="Checkedout.xaml.g.cs" t="Include" />
+                <e p="Flashcart.xaml.g.cs" t="Include" />
+                <e p="FlashSales.xaml.g.cs" t="Include" />
+                <e p="Gala.xaml.g.cs" t="Include" />
+                <e p="Home.xaml.g.cs" t="Include" />
+                <e p="itinerary.xaml.g.cs" t="Include" />
+                <e p="Login.xaml.g.cs" t="Include" />
+                <e p="MainPage.xaml.g.cs" t="Include" />
+                <e p="NoInternet.xaml.g.cs" t="Include" />
+                <e p="OrderList.xaml.g.cs" t="Include" />
+                <e p="Products.xaml.g.cs" t="Include" />
+                <e p="SignUpPage.xaml.g.cs" t="Include" />
+                <e p="SingleOrder.xaml.g.cs" t="Include" />
+                <e p="SingleProductView.xaml.g.cs" t="Include" />
+                <e p="Suppliers.xaml.g.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="PinchToZoomContainer.cs" t="Include" />
+        <e p="Renderers" t="Include" />
+        <e p="Services" t="Include">
+          <e p="CartPersistance.cs" t="Include" />
+          <e p="IDataStore.cs" t="Include" />
+          <e p="IFirebaseAuthenticator.cs" t="Include" />
+          <e p="MockDataStore.cs" t="Include" />
+          <e p="WoocommerceAPI.cs" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="AboutViewModel.cs" t="Include" />
+          <e p="BaseViewModel.cs" t="Include" />
+          <e p="FirebaseHelper.cs" t="Include" />
+          <e p="HomeViewModel.cs" t="Include" />
+          <e p="ItemDetailViewModel.cs" t="Include" />
+          <e p="ItemsViewModel.cs" t="Include" />
+          <e p="LoginViewModel.cs" t="Include" />
+          <e p="NewItemPage.cs" t="Include" />
+          <e p="SignUpVM.cs" t="Include" />
+          <e p="WelcomePageVM.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Attendees.xaml" t="Include" />
+          <e p="Attendees.xaml.cs" t="Include" />
+          <e p="Cart.xaml" t="Include" />
+          <e p="Cart.xaml.cs" t="Include" />
+          <e p="CartEmprty.xaml" t="Include" />
+          <e p="CartEmprty.xaml.cs" t="Include" />
+          <e p="Checkedout.xaml" t="Include" />
+          <e p="Checkedout.xaml.cs" t="Include" />
+          <e p="Flashcart.xaml" t="Include" />
+          <e p="Flashcart.xaml.cs" t="Include" />
+          <e p="FlashSales.xaml" t="Include" />
+          <e p="FlashSales.xaml.cs" t="Include" />
+          <e p="Gala.xaml" t="Include" />
+          <e p="Gala.xaml.cs" t="Include" />
+          <e p="Home.xaml" t="Include" />
+          <e p="Home.xaml.cs" t="Include" />
+          <e p="itinerary.xaml" t="Include" />
+          <e p="itinerary.xaml.cs" t="Include" />
+          <e p="Login.xaml" t="Include" />
+          <e p="Login.xaml.cs" t="Include" />
+          <e p="MainPage.xaml" t="Include" />
+          <e p="MainPage.xaml.cs" t="Include" />
+          <e p="NoInternet.xaml" t="Include" />
+          <e p="NoInternet.xaml.cs" t="Include" />
+          <e p="OrderList.xaml" t="Include" />
+          <e p="OrderList.xaml.cs" t="Include" />
+          <e p="Products.xaml" t="Include" />
+          <e p="Products.xaml.cs" t="Include" />
+          <e p="SignUpPage.xaml" t="Include" />
+          <e p="SignUpPage.xaml.cs" t="Include" />
+          <e p="SingleOrder.xaml" t="Include" />
+          <e p="SingleOrder.xaml.cs" t="Include" />
+          <e p="SingleProductView.xaml" t="Include" />
+          <e p="SingleProductView.xaml.cs" t="Include" />
+          <e p="Suppliers.xaml" t="Include" />
+          <e p="Suppliers.xaml.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Ecombeta/Ecombeta.Android" t="IncludeRecursive">
+        <e p="Assets" t="Include">
+          <e p="AboutAssets.txt" t="Include" />
+          <e p="Montserrat-Bold.ttf" t="Include" />
+          <e p="Montserrat-Medium.ttf" t="Include" />
+          <e p="Montserrat-Regular.ttf" t="Include" />
+          <e p="Montserrat-SemiBold.ttf" t="Include" />
+          <e p="UIFontIcons.ttf" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Ecombeta.Android.csproj" t="IncludeRecursive" />
+        <e p="google-services.json" t="Include" />
+        <e p="MainActivity.cs" t="Include" />
+        <e p="MainApplication.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AndroidManifest.xml" t="Include" />
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Renderers" t="Include">
+          <e p="BorderlessEntryRenderer.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="AboutResources.txt" t="Include" />
+          <e p="drawable" t="Include">
+            <e p="Cart.png" t="Include" />
+            <e p="Home.png" t="Include" />
+            <e p="IC1.png" t="Include" />
+            <e p="IC2.png" t="Include" />
+            <e p="IC3.png" t="Include" />
+            <e p="IC4.png" t="Include" />
+            <e p="IC5.png" t="Include" />
+            <e p="IC6.png" t="Include" />
+            <e p="IC7.png" t="Include" />
+            <e p="IC8.png" t="Include" />
+            <e p="IC9.png" t="Include" />
+            <e p="icon.png" t="Include" />
+            <e p="Login.png" t="Include" />
+            <e p="NoInternet.png" t="Include" />
+            <e p="Orders.png" t="Include" />
+            <e p="screen.png" t="Include" />
+            <e p="Splash.png" t="Include" />
+            <e p="Supplier.png" t="Include" />
+            <e p="xamarin_logo.png" t="Include" />
+          </e>
+          <e p="layout" t="Include">
+            <e p="Tabbar.xml" t="Include" />
+            <e p="Toolbar.xml" t="Include" />
+          </e>
+          <e p="mipmap-anydpi-v26" t="Include">
+            <e p="icon.xml" t="Include" />
+            <e p="icon_round.xml" t="Include" />
+          </e>
+          <e p="mipmap-hdpi" t="Include">
+            <e p="Splash.png" t="Include" />
+            <e p="xamarin_logo.png" t="Include" />
+          </e>
+          <e p="mipmap-mdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+            <e p="Splash.png" t="Include" />
+            <e p="xamarin_logo.png" t="Include" />
+          </e>
+          <e p="mipmap-xxhdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+            <e p="Splash.png" t="Include" />
+            <e p="xamarin_logo.png" t="Include" />
+          </e>
+          <e p="mipmap-xxxhdpi" t="Include">
+            <e p="icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+            <e p="Splash.png" t="Include" />
+            <e p="xamarin_logo.png" t="Include" />
+          </e>
+          <e p="Resource.designer.cs" t="Include" />
+          <e p="values" t="Include">
+            <e p="colors.xml" t="Include" />
+            <e p="styles.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Service" t="Include">
+          <e p="FirebaseAuthenticator.cs" t="Include" />
+        </e>
+        <e p="SplashActivity.cs" t="Include" />
+      </e>
+      <e p="Ecombeta/Ecombeta.iOS" t="IncludeRecursive">
+        <e p="AppDelegate.cs" t="Include" />
+        <e p="Assets.xcassets" t="Include">
+          <e p="AppIcon.appiconset" t="Include">
+            <e p="120-1.png" t="Include" />
+            <e p="120.png" t="Include" />
+            <e p="152.png" t="Include" />
+            <e p="167.png" t="Include" />
+            <e p="180.png" t="Include" />
+            <e p="20.png" t="Include" />
+            <e p="29.png" t="Include" />
+            <e p="40-1.png" t="Include" />
+            <e p="40-2.png" t="Include" />
+            <e p="40.png" t="Include" />
+            <e p="58-1.png" t="Include" />
+            <e p="58.png" t="Include" />
+            <e p="60.png" t="Include" />
+            <e p="76.png" t="Include" />
+            <e p="80-1.png" t="Include" />
+            <e p="80.png" t="Include" />
+            <e p="87.png" t="Include" />
+            <e p="appstore.png" t="Include" />
+            <e p="Contents.json" t="Include" />
+          </e>
+          <e p="Image.imageset" t="Include">
+            <e p="Contents.json" t="Include" />
+          </e>
+          <e p="Splash.imageset" t="Include">
+            <e p="Contents.json" t="Include" />
+            <e p="Splash-1.png" t="Include" />
+            <e p="Splash-2.png" t="Include" />
+            <e p="Splash.png" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Ecombeta.iOS.csproj" t="IncludeRecursive" />
+        <e p="Entitlements.plist" t="Include" />
+        <e p="GoogleService-Info.plist" t="Include" />
+        <e p="Info.plist" t="Include" />
+        <e p="Main.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Renderers" t="Include">
+          <e p="BorderlessEntryRenderer.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="1.png" t="Include" />
+          <e p="2.png" t="Include" />
+          <e p="3.png" t="Include" />
+          <e p="4.png" t="Include" />
+          <e p="5.png" t="Include" />
+          <e p="6.png" t="Include" />
+          <e p="7.png" t="Include" />
+          <e p="8.png" t="Include" />
+          <e p="9.png" t="Include" />
+          <e p="Cart.png" t="Include" />
+          <e p="Home.png" t="Include" />
+          <e p="IC1.png" t="Include" />
+          <e p="IC2.png" t="Include" />
+          <e p="IC3.png" t="Include" />
+          <e p="IC4.png" t="Include" />
+          <e p="IC5.png" t="Include" />
+          <e p="IC6.png" t="Include" />
+          <e p="IC7.png" t="Include" />
+          <e p="IC8.png" t="Include" />
+          <e p="IC9.png" t="Include" />
+          <e p="LaunchScreen.storyboard" t="Include" />
+          <e p="Login.png" t="Include" />
+          <e p="Montserrat-Bold.ttf" t="Include" />
+          <e p="Montserrat-Medium.ttf" t="Include" />
+          <e p="Montserrat-Regular.ttf" t="Include" />
+          <e p="Montserrat-SemiBold.ttf" t="Include" />
+          <e p="Orders.png" t="Include" />
+          <e p="Splash.png" t="Include" />
+          <e p="Supplier.png" t="Include" />
+          <e p="tab_about.png" t="Include" />
+          <e p="tab_about@2x.png" t="Include" />
+          <e p="tab_about@3x.png" t="Include" />
+          <e p="tab_feed.png" t="Include" />
+          <e p="tab_feed@2x.png" t="Include" />
+          <e p="tab_feed@3x.png" t="Include" />
+          <e p="UIFontIcons.ttf" t="Include" />
+          <e p="xamarin_logo.png" t="Include" />
+          <e p="xamarin_logo@2x.png" t="Include" />
+          <e p="xamarin_logo@3x.png" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="FirebaseAuthenticator.cs" t="Include" />
+        </e>
+        <e p="ViewCellRendererForiOS.cs" t="Include" />
+      </e>
+      <e p="Ecombeta.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Ecombeta.341917416.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Developer/Xamarin/android-sdk-macosx/platforms/android-28/data/res" t="IncludeRecursive" />
+  </component>
+</project>

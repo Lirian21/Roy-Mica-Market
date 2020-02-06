@@ -13,12 +13,12 @@
        
 
             
-                 <controls:CarouselViewControl ShowIndicators="True"  IndicatorsShape="Circle" Orientation="Horizontal" x:Name="Carouselview" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                 <controls:CarouselViewControl ShowIndicators="True"  IndicatorsShape="Circle" Orientation="Horizontal" x:Name="Carouselview"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
     <controls:CarouselViewControl.ItemTemplate>
 		<DataTemplate>
 		    <ffimageloading:CachedImage 
-                                         Aspect="AspectFit"
-                                    HorizontalOptions="StartAndExpand"
+                Aspect="AspectFit"
+                HorizontalOptions="StartAndExpand"
                 VerticalOptions="StartAndExpand"
                 DownsampleToViewSize="true"
                                          Source="{Binding .}">

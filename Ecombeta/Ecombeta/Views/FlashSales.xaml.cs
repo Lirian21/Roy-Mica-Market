@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
+using Ecombeta.Models;
 
 namespace Ecombeta.Views
 {
@@ -41,6 +42,7 @@ namespace Ecombeta.Views
                     {"tag", "1486" },
                     { "per_page", "80" } });
                 productsListView.FlowItemsSource = p;
+;
             }
             catch (Exception ex)
             {
@@ -52,10 +54,10 @@ namespace Ecombeta.Views
         {
             try
             {
-                SingleProductView.Flashsale = true;
+                ProductProperties.Init.Flashsale = true;
                 var btn = (Button)sender;
                 var a = btn.BindingContext;
-                SingleProductView.singleID = Convert.ToInt32(a);
+                ProductProperties.Init.singleID = Convert.ToInt32(a);
                 await Navigation.PushAsync(new SingleProductView());
             }
             catch (Exception ex)

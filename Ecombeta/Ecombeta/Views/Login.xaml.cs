@@ -175,10 +175,16 @@ namespace Ecombeta.Views
         {
             try
             {
+                TaskLoader.IsRunning = true;
+                LoadingOverlay.IsVisible = true;
+
                 ExtractWooData(FetchCustomers.customers);
                 WpApiCredentials.Username = Usernamelabel.Text;
                 WpApiCredentials.Password = Password.Text;
                 Login_Phase1();
+
+                TaskLoader.IsRunning = false;
+                LoadingOverlay.IsVisible = false;
             }
             catch (Exception ex)
             {

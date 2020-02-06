@@ -7,14 +7,30 @@
              BackgroundImageSource="https://mm-app.co.za/wp-content/uploads/2019/12/Bluepoly.jpg"
              x:Class="Ecombeta.Views.OrderList">
     <ContentPage.Content>
-
-        <StackLayout Opacity="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Image x:Name="Imageback" Aspect="AspectFill" Opacity="1"  />
+                <AbsoluteLayout>
+              <StackLayout
+        x:Name="LoadingOverlay"
+        IsVisible="False"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="Black" Opacity="0.5">
+        <ActivityIndicator
+            x:Name="TaskLoader"
+            IsRunning="False"
+            Scale="3"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Color="White"/>
+    </StackLayout>
+        <StackLayout BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        
+             
 
 
                 <ListView x:Name="Orderslist"
-                       HasUnevenRows="True"   
+                       HasUnevenRows="True"
+                         
+                          BackgroundColor="Transparent"
                       VerticalOptions="FillAndExpand"
                       HorizontalOptions="FillAndExpand"
                       SeparatorVisibility="None" >
@@ -75,7 +91,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>
+      
         </StackLayout>
+                    </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

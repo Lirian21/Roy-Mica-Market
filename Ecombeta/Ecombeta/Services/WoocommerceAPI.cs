@@ -18,7 +18,7 @@ namespace Ecombeta.Services
         private static string consumer_key = "ck_0112f135e2f9b32cc147f28028fd621f919bc890";
         private static string consumer_secret = "cs_38ea21f4d63eb96a801868993b66065dcb0362fa";
 
-        public static string GetAllProductsApiUrl = string.Format("{0}/wp-json/wc/v3/products?tag={1}&consumer_key={2}&consumer_secret={3}", website_url, Suppliers.tagid, consumer_key, consumer_secret);
+        public static string GetAllProductsApiUrl = string.Format("{0}/wp-json/wc/v3/products?tag={1}&consumer_key={2}&consumer_secret={3}", website_url, SuppliersVariables.Init.TagID, consumer_key, consumer_secret);
         //private static string GetAllOrdersApiUrl = string.Format("{0}/wc-api/v3/orders?consumer_key={1}&consumer_secret={2}", website_url, consumer_key, consumer_secret);
 
       
