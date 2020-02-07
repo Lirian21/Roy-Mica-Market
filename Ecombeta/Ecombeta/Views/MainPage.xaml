@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -7,28 +8,26 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
-              xmlns:local="clr-namespace:Ecombeta"
+             xmlns:local="clr-namespace:Ecombeta"
              x:Class="Ecombeta.Views.MainPage">
     <ContentPage.Content>
-       
 
-            
-                 <controls:CarouselViewControl ShowIndicators="True"  IndicatorsShape="Circle" Orientation="Horizontal" x:Name="Carouselview"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-    <controls:CarouselViewControl.ItemTemplate>
-		<DataTemplate>
-		    <ffimageloading:CachedImage 
-                Aspect="AspectFit"
-                HorizontalOptions="StartAndExpand"
-                VerticalOptions="StartAndExpand"
-                DownsampleToViewSize="true"
-                                         Source="{Binding .}">
-                </ffimageloading:CachedImage>
-		</DataTemplate>
-    </controls:CarouselViewControl.ItemTemplate>
-</controls:CarouselViewControl>
-           
 
-           
-            
+        <controls:CarouselViewControl ShowIndicators="True" IndicatorsShape="Circle" Orientation="Horizontal"
+                                      x:Name="Carouselview" VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand">
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFit"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        DownsampleToViewSize="true"
+                        Source="{Binding .}" />
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+
+
     </ContentPage.Content>
 </ContentPage>

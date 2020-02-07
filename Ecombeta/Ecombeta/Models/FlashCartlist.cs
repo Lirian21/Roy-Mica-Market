@@ -1,129 +1,111 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.Diagnostics;
-using Xamarin.Forms;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Ecombeta.Models
 {
-
-
-    public class FlashCartlist : System.ComponentModel.INotifyPropertyChanged
+    public class FlashCartlist : INotifyPropertyChanged
     {
+        public string QuantityCheck { get; set; }
 
+        private bool _inStock;
 
+        private string _stockStatus;
 
+        private decimal _totalPrice;
+        public string ProductName { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public string Pname { get; set; }
-
-        private bool inStock;
         public bool InStock
         {
-            get { return inStock; }
+            get => _inStock;
 
             set
             {
-
-                inStock = value;
+                _inStock = value;
                 NotifyPropertyChanged();
-
             }
         }
 
-        private string stockStatus;
         public string StockStatus
         {
-            get { return stockStatus; }
+            get => _stockStatus;
 
             set
             {
-
-                stockStatus = value;
+                _stockStatus = value;
                 NotifyPropertyChanged();
-
             }
         }
+
         public double StockQuantity { get; set; }
 
         public int PId { get; set; }
 
-        public int VariantParentID { get; set; }
-        public double Pquantity { get; set; }
+        public int VariantParentId { get; set; }
+        public double ProductQuantity { get; set; }
 
-        public int variation_id { get; set; }
+        public int VariationId { get; set; }
 
-        private decimal totalprice;
-        public decimal Totalprice
+        public decimal TotalPrice
         {
-            get { return totalprice; }
+            get => _totalPrice;
 
             set
             {
-                if (value.CompareTo(totalprice) != 0)
-                {
-                    totalprice = value;
-                    NotifyPropertyChanged();
-                }
+                if (value.CompareTo(_totalPrice) == 0) return;
+                _totalPrice = value;
+                NotifyPropertyChanged();
             }
         }
 
-        public string CheckforQuantity;
         public decimal Price { get; set; }
-        public string Imagesrc { get; set; }
+        public string ImgSource { get; set; }
 
         public int IncrementQ { get; set; }
         public int MinQ { get; set; }
 
-        protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = null)
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
-    public class FlashItemList : INotifyPropertyChanged
+    public sealed class FlashItemList : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<FlashCartlist> _items;
-
-        public ObservableCollection<FlashCartlist> Items
-        {
-            get { return _items; }
-            set { _items = value; OnPropertyChanged("Items"); }
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged == null)
-                return;
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private ObservableCollection<FlashCartlist> _items;
 
         public FlashItemList(List<FlashCartlist> itemList)
         {
-
             Items = new ObservableCollection<FlashCartlist>();
-            if (itemList != null)
-            {
-                foreach (FlashCartlist itm in itemList)
-                {
-                    Items.Add(itm);
-                }
-            }
+            if (itemList == null) return;
+            foreach (var itm in itemList)
+                Items.Add(itm);
+        }
 
+        public ObservableCollection<FlashCartlist> Items
+        {
+            get => _items;
+            private set
+            {
+                _items = value;
+                OnPropertyChanged("Items");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
-    public class FlashFullCart
+    public static class FlashFullCart
     {
-
-
-        public static List<FlashCartlist> Cartlistz;
-
-
+        public static List<FlashCartlist> CartList;
     }
-
-
 }

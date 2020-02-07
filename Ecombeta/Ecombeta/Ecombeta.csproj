@@ -43,6 +43,7 @@
 
   <ItemGroup>
     <EmbeddedResource Remove="Views\Orders.xaml" />
+    <EmbeddedResource Remove="Renderers\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\Attendees.xaml">
@@ -87,16 +88,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Renderers\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Flashcart.cs" />
     <Compile Remove="Views\Orders.xaml.cs" />
+    <Compile Remove="Renderers\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\FlashSales.xaml.cs">
       <DependentUpon>FlashSales.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Renderers\**" />
   </ItemGroup>
 </Project>

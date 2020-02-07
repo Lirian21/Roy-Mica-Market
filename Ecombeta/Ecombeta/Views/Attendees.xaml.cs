@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,7 +20,6 @@ namespace Ecombeta.Views
             {
                 Crashes.TrackError(ex);
             }
-
         }
 
         protected override bool OnBackButtonPressed()

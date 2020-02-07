@@ -1,18 +1,15 @@
-using Syncfusion.XForms.iOS.Border;
-using Syncfusion.XForms.iOS.Buttons;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Foundation;
-using UIKit;    
-using Plugin.Toasts;
-using Xamarin.Forms;
-using Plugin.FirebasePushNotification;
-using CarouselView.FormsPlugin.iOS;
-using UserNotifications;
+using FFImageLoading.Forms.Platform;
 using Firebase.CloudMessaging;
+using Foundation;
 using Octane.Xamarin.Forms.VideoPlayer.iOS;
+using Plugin.FirebasePushNotification;
+using UIKit;
+using UserNotifications;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using CarouselViewRenderer = CarouselView.FormsPlugin.iOS.CarouselViewRenderer;
 
 namespace Ecombeta.iOS
 {
@@ -20,7 +17,7 @@ namespace Ecombeta.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
+    public class AppDelegate : FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
     {
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -31,41 +28,42 @@ namespace Ecombeta.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Forms.SetFlags("IndicatorView_Experimental");
+            Forms.SetFlags("CarouselView_Experimental");
+            Forms.SetFlags("SwipeView_Experimental");
+            CachedImageRenderer.Init();
 
-            Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
-            Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
-            Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
-    
             Forms.Init();
 
-            CarouselView.FormsPlugin.iOS.CarouselViewRenderer.Init();
+            CarouselViewRenderer.Init();
 
             LoadApplication(new App());
-            if (App.IsConnected == true)
+            if (App.IsConnected)
             {
                 Firebase.Core.App.Configure();
-                FirebasePushNotificationManager.Initialize(options, true);
+                FirebasePushNotificationManager.Initialize(options);
                 FormsVideoPlayer.Init();
 
-                FirebasePushNotificationManager.Initialize(options, new NotificationUserCategory[]
-                 {
-                new NotificationUserCategory("message",new List<NotificationUserAction> {
-                    new NotificationUserAction("Reply","Reply",NotificationActionType.Foreground)
-                }),
-                new NotificationUserCategory("request",new List<NotificationUserAction> {
-                    new NotificationUserAction("Accept","Accept"),
-                    new NotificationUserAction("Reject","Reject",NotificationActionType.Destructive)
-                })
-
-                 });
+                FirebasePushNotificationManager.Initialize(options, new[]
+                {
+                    new NotificationUserCategory("message", new List<NotificationUserAction>
+                    {
+                        new NotificationUserAction("Reply", "Reply", NotificationActionType.Foreground)
+                    }),
+                    new NotificationUserCategory("request", new List<NotificationUserAction>
+                    {
+                        new NotificationUserAction("Accept", "Accept"),
+                        new NotificationUserAction("Reject", "Reject", NotificationActionType.Destructive)
+                    })
+                });
 
                 CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
                 {
-                    FirebasePushNotificationManager.CurrentNotificationPresentationOption = UNNotificationPresentationOptions.Alert | UNNotificationPresentationOptions.Badge;
+                    FirebasePushNotificationManager.CurrentNotificationPresentationOption =
+                        UNNotificationPresentationOptions.Alert | UNNotificationPresentationOptions.Badge;
                 };
-
             }
+
             return base.FinishedLaunching(app, options);
         }
 
@@ -73,16 +71,17 @@ namespace Ecombeta.iOS
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             FirebasePushNotificationManager.DidRegisterRemoteNotifications(deviceToken);
-
         }
 
         public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
         {
             FirebasePushNotificationManager.RemoteNotificationRegistrationFailed(error);
         }
+
         // To receive notifications in foregroung on iOS 9 and below.
         // To receive notifications in background in any iOS version
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo,
+            Action<UIBackgroundFetchResult> completionHandler)
         {
             // If you are receiving a notification message while your app is in the background,
             // this callback will not be fired 'till the user taps on the notification launching the application.
@@ -92,7 +91,7 @@ namespace Ecombeta.iOS
             // automatically with method swizzling enabled.
             FirebasePushNotificationManager.DidReceiveMessage(userInfo);
             // Do your magic to handle the notification data
-            System.Console.WriteLine(userInfo);
+            Console.WriteLine(userInfo);
 
             completionHandler(UIBackgroundFetchResult.NewData);
         }

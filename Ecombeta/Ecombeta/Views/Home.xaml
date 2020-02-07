@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ecombeta.Views.Home"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="Ecombeta.Views.Home"
                   BackgroundColor="Transparent"
-         xmlns:local="Ecombeta:XFMasterDetailPageNavigation"
-           xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                  >
+                  xmlns:local="Ecombeta:XFMasterDetailPageNavigation"
+                  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu" BackgroundColor="#0072BB">
             <ContentPage.Resources>
@@ -20,53 +20,54 @@
                     <RowDefinition Height="120" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid >
-                    <StackLayout Padding="0,10,0,0" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
-                        <Label HorizontalOptions="Center" FontAttributes="Bold" x:Name="Emailnav" FontSize="Large" FontFamily="droid sans mono" TextColor="White"></Label>
+                <Grid>
+                    <StackLayout Padding="0,10,0,0" Margin="0,10,0,0" HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Fill">
+                        <Label HorizontalOptions="Center" FontAttributes="Bold" x:Name="Emailnav" FontSize="Large"
+                               FontFamily="droid sans mono" TextColor="White" />
                         <ffimageloading:CachedImage HorizontalOptions="Fill" VerticalOptions="Fill"
-                                            WidthRequest="120" HeightRequest="80"
-                                            DownsampleToViewSize="true"
-                                            Source = "https://www.mica.co.za/wp-content/themes/mica2016theme/images/logo.png">
-                        </ffimageloading:CachedImage>
+                                                    WidthRequest="120" HeightRequest="80"
+                                                    DownsampleToViewSize="true"
+                                                    Source="https://www.mica.co.za/wp-content/themes/mica2016theme/images/logo.png" />
                     </StackLayout>
                 </Grid>
-               
+
                 <StackLayout Margin="20,20,20,0" Grid.Row="1" Padding="10" Spacing="15">
 
-                    <ListView x:Name="navigationDrawerList" RowHeight="60"  SeparatorVisibility="None" BackgroundColor="White" ItemSelected="OnMenuItemSelected">
+                    <ListView x:Name="navigationDrawerList" RowHeight="60" SeparatorVisibility="None"
+                              BackgroundColor="White" ItemSelected="OnMenuItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell >
+                                <ViewCell>
                                     <!-- Main design for our menu items -->
-                                    <StackLayout  VerticalOptions="FillAndExpand" Margin="5" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                                    <StackLayout VerticalOptions="FillAndExpand" Margin="5" Orientation="Horizontal"
+                                                 Padding="20,10,0,10" Spacing="20">
                                         <Image Source="{Binding Icon}"
-                                             WidthRequest="30"
-                                             HeightRequest="30"
-                                             VerticalOptions="Center" />
+                                               WidthRequest="30"
+                                               HeightRequest="30"
+                                               VerticalOptions="Center" />
 
                                         <Label Text="{Binding Title}"
-                                             FontSize="Medium"
-                                             VerticalOptions="Center"
-                                             TextColor="Black"/>
-                                        <Label x:Name="Emailnav"  FontSize="Medium" TextColor="White" FontAttributes="Bold"/>
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               TextColor="Black" />
+                                        <Label x:Name="Emailnav" FontSize="Medium" TextColor="White"
+                                               FontAttributes="Bold" />
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button TextColor="White" Margin="0,0,0,10" CornerRadius="10"   FontSize="Small" FontAttributes="Bold" BackgroundColor="#F39000" x:Name="logoutbtn" Text="Logout" Clicked="logoutbtn_Clicked"/>
+                    <Button TextColor="White" Margin="0,0,0,10" CornerRadius="10" FontSize="Small"
+                            FontAttributes="Bold" BackgroundColor="#F39000" x:Name="logoutbtn" Text="Logout"
+                            Clicked="logoutbtn_Clicked" />
                 </StackLayout>
-                 
+
             </Grid>
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage NavigationPage.HasNavigationBar="False">
-            
-        </NavigationPage>
+        <NavigationPage NavigationPage.HasNavigationBar="False" />
     </MasterDetailPage.Detail>
 </MasterDetailPage>
-    <!--Pages can be added as references or inline-->
-
-    
- 
+<!--Pages can be added as references or inline-->

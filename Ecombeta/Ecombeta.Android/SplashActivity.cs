@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+using System.Threading;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Microsoft.AppCenter.Crashes;
 
 namespace Ecombeta.Droid
@@ -20,7 +13,7 @@ namespace Ecombeta.Droid
         {
             try
             {
-                System.Threading.Thread.Sleep(300);
+                Thread.Sleep(300);
                 base.OnCreate(savedInstanceState);
                 StartActivity(typeof(MainActivity));
                 Finish();

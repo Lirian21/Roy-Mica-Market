@@ -93,7 +93,6 @@
           </e>
         </e>
         <e p="PinchToZoomContainer.cs" t="Include" />
-        <e p="Renderers" t="Include" />
         <e p="Services" t="Include">
           <e p="CartPersistance.cs" t="Include" />
           <e p="IDataStore.cs" t="Include" />

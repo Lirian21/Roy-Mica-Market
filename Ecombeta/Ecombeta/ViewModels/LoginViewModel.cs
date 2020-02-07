@@ -1,31 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
 using Ecombeta.Views;
-using Ecombeta;
-using Ecombeta.Models;
-using WooCommerceNET.WooCommerce.v3;
-using WooCommerceNET.WooCommerce.v3.Extension;
 using WooCommerceNET;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
+using WooCommerceNET.WooCommerce.v3;
+using Xamarin.Forms;
 
 namespace Ecombeta.ViewModel
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
+        public List<Customer> customers;
+
         //Not Using this just keeping it as a Example
         public bool loginsuc;
-        public List<Customer> customers;
-        public event PropertyChangedEventHandler PropertyChanged;
-        public LoginViewModel()
-        {
 
-        }
         //private string usersname;
         //public string Usersname
         //{
@@ -37,47 +25,39 @@ namespace Ecombeta.ViewModel
         //    }
         //}
         private string password;
+
         public string Password
         {
-            get { return password; }
+            get => password;
             set
             {
                 password = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Password"));
             }
         }
-        public Command LoginCommand
-        {
-            get
-            {
-                return new Command(Login);
-            }
-        }
+
+        public Command LoginCommand => new Command(Login);
+
         public Command SignUp
         {
-            get
-            {
-                return new Command(() => { App.Current.MainPage.Navigation.PushAsync(new SignUpPage()); });
-            }
+            get { return new Command(() => { Application.Current.MainPage.Navigation.PushAsync(new SignUpPage()); }); }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
-        
-            //foreach (var user in list.Where(currentUser => string.Equals(currentUser.username?? string.Empty, Usersname ?? string.Empty,
-            //            StringComparison.CurrentCultureIgnoreCase)))
-            //{
+        //foreach (var user in list.Where(currentUser => string.Equals(currentUser.username?? string.Empty, Usersname ?? string.Empty,
+        //            StringComparison.CurrentCultureIgnoreCase)))
+        //{
 
-            //}
+        //}
 
-        
-       
-   
+
         private async void Login()
         {
-          
-            RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-            WCObject wc = new WCObject(rest);
+            var rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0",
+                "cs_8f247c22353f25b905c96171379b89714f8f4003");
+            var wc = new WCObject(rest);
 
             //var x = await wc.Customer.GetAll(new Dictionary<string, string>() {
             //    {
@@ -99,7 +79,7 @@ namespace Ecombeta.ViewModel
             //    
             //}
 
-         
+
             //else
             //{
             //    var v = await wc.Customer.GetAll(new Dictionary<string, string>() {
@@ -140,7 +120,7 @@ namespace Ecombeta.ViewModel
             //  var password = Users.a.Where(c => c.password == Password)
             //        .Select(c => c)
             //        .Select(v => v.id);
-                
+
             //        await App.Current.MainPage.DisplayAlert("Login Success", "", "Ok");
             //        //Navigate to Wellcom page after successfuly login
             //        //pass user email to welcom page
@@ -149,7 +129,7 @@ namespace Ecombeta.ViewModel
             //        Users.Loggedin = true;
             //        await Application.Current.SavePropertiesAsync();
             //       await App.Current.MainPage.Navigation.PushAsync(new Home(email));
- 
+
             //}
         }
     }

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AppCenter.Crashes;
-using WooCommerceNET;
 using WooCommerceNET.WooCommerce.v3;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +10,7 @@ namespace Ecombeta.Views
     public partial class SingleOrder : ContentPage
     {
         public static int PassOid;
+
         public SingleOrder()
         {
             InitializeComponent();
@@ -28,12 +24,13 @@ namespace Ecombeta.Views
                 Crashes.TrackError(ex);
             }
         }
-        public async void Init()
+
+        private async void Init()
         {
             try
             {
                 var p = await App.WooObject.Order.Get(PassOid);
-                SingleOrderList.ItemsSource = new Order[1] { p };
+                SingleOrderList.ItemsSource = new Order[] {p};
 
                 Lineorders.ItemsSource = p.line_items;
             }

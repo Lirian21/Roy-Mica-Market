@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ecombeta.Models
+﻿namespace Ecombeta.Models
 {
-   public class WpApiCredentials
+    public class WpApiCredentials
     {
         public static string SiteUri = "http://mm-app.co.za/wp-json/";
         public static string WordPressUri = $"https://public-api.wordpress.com/wp/v2/sites/{SiteUri}/";

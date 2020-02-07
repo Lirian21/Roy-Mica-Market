@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Threading.Tasks;
 using Ecombeta.Models;
 using Newtonsoft.Json;
 using Xamarin.Essentials;
@@ -11,63 +8,41 @@ namespace Ecombeta.Services
 {
     public class CartPersistance
     {
-        public static string PerCart { get; set; }
         public static bool LoadedCart;
-      
-        public CartPersistance()
-        {
-           
-            
 
-
-        }
+        public static string PerCart { get; set; }
 
         public void DePersist(string z)
         {
-
             if (z == null || z == "")
-            {
-                FullCart.Cartlistz = JsonConvert.DeserializeObject<List<Cartlist>>(PerCart);
-     
-            }
+                FullCart.CartList = JsonConvert.DeserializeObject<List<CartList>>(PerCart);
             else
-            {
-                FullCart.Cartlistz = JsonConvert.DeserializeObject<List<Cartlist>>(z);
-         
-            }
-
-           
+                FullCart.CartList = JsonConvert.DeserializeObject<List<CartList>>(z);
         }
 
-        public void Persist(List<Cartlist> x)
+        public void Persist(List<CartList> x)
         {
-
-            string jsonString = JsonConvert.SerializeObject(x);
-            if (LoadedCart == true)
+            var jsonString = JsonConvert.SerializeObject(x);
+            if (LoadedCart)
             {
-
                 var FetchedCart = Preferences.Get("Cart", "default_value");
 
-               var y = JsonConvert.DeserializeObject<List<Cartlist>>(FetchedCart);
+                var y = JsonConvert.DeserializeObject<List<CartList>>(FetchedCart);
 
-               var united = y.Union(FullCart.Cartlistz).ToList();
+                var united = y.Union(FullCart.CartList).ToList();
 
-               string jsonStringz = JsonConvert.SerializeObject(united);
+                var jsonStringz = JsonConvert.SerializeObject(united);
 
                 PerCart = jsonStringz;
-            
-               Preferences.Set("Cart", jsonStringz);
+
+                Preferences.Set("Cart", jsonStringz);
 
                 LoadedCart = false;
             }
             else
             {
-
                 Preferences.Set("Cart", jsonString);
             }
-      
-
-       
         }
     }
 }

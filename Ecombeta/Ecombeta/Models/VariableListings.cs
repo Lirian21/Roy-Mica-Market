@@ -6,130 +6,92 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Microsoft.AppCenter.Crashes;
 using WooCommerceNET;
-using WooCommerceNET.WooCommerce.v3;
+using WooCommerceNET.WooCommerce.v2;
+using Xamarin.Forms;
+using Customer = WooCommerceNET.WooCommerce.v3.Customer;
+using Product = WooCommerceNET.WooCommerce.v3.Product;
+using ProductTag = WooCommerceNET.WooCommerce.v3.ProductTag;
+using VariationImage = WooCommerceNET.WooCommerce.v3.VariationImage;
 
 namespace Ecombeta.Models
 {
     public class GlobalVariable
     {
         #region Globals
+
         #region Singleton
-        GlobalVariable()
-        {
 
+        private GlobalVariable()
+        {
         }
 
-        static GlobalVariable instance = new GlobalVariable();
 
-
-        public static GlobalVariable Init
-        {
-            get { return instance; }
-        }
+        public static GlobalVariable Init { get; } = new GlobalVariable();
 
         #endregion
 
-        private RestAPI _rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/", "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-
-        public RestAPI rest
-        {
-            get
-            {
-                return _rest;
-            }
-        }
-      
+        public RestAPI rest { get; } = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/",
+            "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
 
         #endregion
     }
 
     public class HomeVariables : INotifyPropertyChanged
     {
-        #region Singleton
-        HomeVariables()
-        {
+        private string _message;
 
+        private string _titleMessage;
+
+        public string Message
+        {
+            get => _message;
+            set
+            {
+                if (_message == value) return;
+                _message = value;
+                RaisePropertyChanged();
+            }
         }
 
-        static HomeVariables instance = new HomeVariables();
-
-
-        public static HomeVariables Init
+        public string TitleMessage
         {
-            get { return instance; }
+            get => _titleMessage;
+            set
+            {
+                if (_titleMessage == value) return;
+                _titleMessage = value;
+                RaisePropertyChanged();
+            }
         }
 
-        #endregion
+        public List<MasterPageItem> MenuList { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = null)
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
 
-
-        protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        private void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
             try
             {
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
             catch (Exception ex)
             {
                 Crashes.TrackError(ex);
             }
         }
-
-        private string _message;
-        public string Message
-        {
-            get
-            {
-                return _message;
-            }
-            set
-            {
-                if (_message != value)
-                {
-                    _message = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
-        private string _titlemessage;
-        public string TitleMessage
-        {
-
-
-            get
-            {
-                return _titlemessage;
-            }
-            set
-            {
-                if (_titlemessage != value)
-                {
-                    _titlemessage = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
-        public List<MasterPageItem> menuListz { get; set; }
 
         public async void HandleCustomEvent(object sender, PropertyChangedEventArgs a)
         {
             try
             {
                 //This is my Scuff way of getting live Supplier Changes from the Firebase Network
-                var y = await App.Current.MainPage.DisplayAlert(TitleMessage, Message, "Go Sale", "ok");
-
+                var y = await Application.Current.MainPage.DisplayAlert(TitleMessage, Message, "Go Sale", "ok");
             }
             catch (Exception ex)
             {
@@ -137,128 +99,121 @@ namespace Ecombeta.Models
             }
         }
 
+        #region Singleton
+
+        private HomeVariables()
+        {
+        }
+
+
+        public static HomeVariables Init { get; } = new HomeVariables();
+
+        #endregion
     }
 
     public class SuppliersVariables : INotifyPropertyChanged
     {
+        public List<Customer> CustomerList;
 
-        #region Singleton
-        SuppliersVariables()
-        {
+        public List<ProductTag> Tags;
 
-        }
-
-        static SuppliersVariables instance = new SuppliersVariables();
+        public ICommand PinButtonCommand => null;
 
 
-        public static SuppliersVariables Init
-        {
-            get { return instance; }
-        }
-
-        #endregion
+        public string TagId { set; get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = null)
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ICommand PinButtonCommand { get; private set; }
+        #region Singleton
 
-        public List<WooCommerceNET.WooCommerce.v3.ProductTag> Tags;
-        
+        private SuppliersVariables()
+        {
+        }
 
-        public string TagID { set; get; }
 
-        public List<Customer> customerList;
+        public static SuppliersVariables Init { get; } = new SuppliersVariables();
+
+        #endregion
     }
 
     public class ProductsVariables : INotifyPropertyChanged
     {
-        #region Singleton
-        ProductsVariables()
-        {
-
-        }
-
-        static ProductsVariables instance = new ProductsVariables();
-
-
-        public static ProductsVariables Init
-        {
-            get { return instance; }
-        }
-
-        #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ObservableCollection<Product> Items;
 
         public List<Productimport> FinalProducts { get; set; }
 
-        public ObservableCollection<Product> _items;
-
-    }
-
-    public class ProductProperties : INotifyPropertyChanged {
-
-        #region Singleton
-        ProductProperties()
-        {
-
-        }
-
-        static ProductProperties instance = new ProductProperties();
-
-
-        public static ProductProperties Init
-        {
-            get { return instance; }
-        }
-
-        #endregion
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = null)
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public List<WooCommerceNET.WooCommerce.v3.Variation> VarProduct;
+        #region Singleton
+
+        private ProductsVariables()
+        {
+        }
+
+
+        public static ProductsVariables Init { get; } = new ProductsVariables();
+
+        #endregion
+    }
+
+    public class ProductProperties : INotifyPropertyChanged
+    {
+        public static VariationImage Img;
+        public bool FlashSale;
+        public string ImgSource;
+        public bool Unlimited;
+        public List<CartList> OldList;
+        public List<OrderLineItem> OrdersLine;
         public bool Saving;
-        public string title { get; set; }
         public Product SProduct;
+        public int TempId;
+        public string TempIsAvb;
         public string TempStockStatus;
-        public string Customeremail { set; get; }
-        public int index { get; set; }
-        public  double productQuantity { get; set; }
-        public decimal Tempprice { get; set; }
+
+        public List<WooCommerceNET.WooCommerce.v3.Variation> VarProduct;
+        public string Title { get; set; }
+        public string CustomEmail { set; get; }
+        public int Index { get; set; }
+        public double ProductQuantity { get; set; }
+        public decimal TemporaryPrice { get; set; }
         public object Increment { get; set; }
-        public decimal priceinprogress { get; set; }
-        public int singleID { get; set; }
-        public bool Flashsale;
-        public List<Cartlist> oldlist;
-        public int TempID;
+        public decimal PriceProcessing { get; set; }
+        public int SingleId { get; set; }
         public string Name { get; set; }
         public double TempStockQ { get; set; }
         public bool ProductE { get; set; }
         public int TempIncrementQ { get; set; }
         public int TempMinQ { get; set; }
-        public List<WooCommerceNET.WooCommerce.v2.OrderLineItem> orderline;
         public string Time { get; set; }
-        public bool isUnlimted;
-        public string imagesrc;
-        public static VariationImage img;
-        public string TempIsAvb;
-        public int VarID { get; set; }
-        public double fluxprice { get; set; }
-    }
+        public int VarId { get; set; }
+        public double DynamicPrice { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #region Singleton
+
+        private ProductProperties()
+        {
+        }
+
+
+        public static ProductProperties Init { get; } = new ProductProperties();
+
+        #endregion
+    }
 }

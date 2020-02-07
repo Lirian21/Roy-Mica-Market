@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 
@@ -10,7 +9,7 @@ namespace Ecombeta.Views
         public NoInternet()
         {
             InitializeComponent();
-              try
+            try
             {
                 Backgroundimage.Source = "https://mm-app.co.za/wp-content/uploads/2019/12/OrangeBluepoly.jpg";
 
@@ -18,22 +17,17 @@ namespace Ecombeta.Views
             }
             catch (Exception ex)
             {
-                 Crashes.TrackError(ex);
+                Crashes.TrackError(ex);
             }
-
-
         }
 
-        void Shopping_Clicked(System.Object sender, System.EventArgs e)
+        private void Shopping_Clicked(object sender, EventArgs e)
         {
             App.MakeWebRequest();
-            if (App.IsConnected == true)
-            {
-                  Application.Current.MainPage = new Home();
-                //await Navigation.PushModalAsync(new NavigationPage(new Home("Mica Market")));
-                // Navigation.PushModalAsync(new Home("Mica Market
-
-            }
+            if (App.IsConnected)
+                Application.Current.MainPage = new Home();
+            //await Navigation.PushModalAsync(new NavigationPage(new Home("Mica Market")));
+            // Navigation.PushModalAsync(new Home("Mica Market
         }
     }
 }
