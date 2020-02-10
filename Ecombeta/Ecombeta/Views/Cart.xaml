@@ -55,20 +55,18 @@
                                 <ViewCell.View>
                                     <StackLayout Orientation="Vertical">
                                         <Label TextColor="Black" x:Name="something" HorizontalOptions="CenterAndExpand"
-                                               Text="{Binding Pname}" FontSize="Subtitle" />
-                                        <Label TextColor="Black" x:Name="Selected" IsVisible="{Binding isVisible}"
-                                               HorizontalOptions="CenterAndExpand" Text="Selected" FontSize="Subtitle" />
+                                               Text="{Binding ProductName}" FontSize="Subtitle" />
                                         <ffimageloading:CachedImage
                                             HeightRequest="150"
                                             WidthRequest="150"
                                             HorizontalOptions="CenterAndExpand"
                                             VerticalOptions="CenterAndExpand"
                                             DownsampleToViewSize="true"
-                                            Source="{Binding Imagesrc}" />
+                                            Source="{Binding ImgSource}" />
                                         <!--<Label HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" Text="{Binding PId, StringFormat='SKU {0:F0}'}" FontSize="Medium"></Label> -->
                                         <Label FontSize="Large" VerticalOptions="CenterAndExpand" TextColor="Black"
                                                HorizontalOptions="CenterAndExpand"
-                                               Text="{Binding Totalprice, StringFormat='Total R:{0,5:#,0.00}' }"
+                                               Text="{Binding TotalDynamicPrice, StringFormat='Total R:{0,5:#,0.00}' }"
                                                FontAttributes="Bold" />
                                         <Label HorizontalOptions="CenterAndExpand" TextColor="Black"
                                                FontAttributes="Bold"
@@ -80,7 +78,7 @@
                                                          Source="https://mm-app.co.za/wp-content/uploads/2020/01/icons8-remove-64.png"
                                                          BindingContext="{Binding PId}" Clicked="Removevalue_Clicked" />
                                             <Stepper x:Name="stepper" Maximum="{Binding StockQuantity}"
-                                                     Value="{Binding Pquantity}"
+                                                     Value="{Binding ProductQuantity}"
                                                      Minimum="{Binding MinQ}"
                                                      HorizontalOptions="CenterAndExpand"
                                                      VerticalOptions="CenterAndExpand"

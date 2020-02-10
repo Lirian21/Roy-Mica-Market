@@ -6,6 +6,7 @@ using Ecombeta.Models;
 using Microsoft.AppCenter.Crashes;
 using WooCommerceNET.WooCommerce.v2;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using Product = WooCommerceNET.WooCommerce.v3.Product;
 using Variation = WooCommerceNET.WooCommerce.v3.Variation;
@@ -15,8 +16,8 @@ namespace Ecombeta.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Flashcart : ContentPage
     {
-        private int currentID;
         private readonly List<FlashCartlist> FlashCart;
+        private int currentID;
         private FlashItemList items;
         private List<OrderLineItem> Lineitems;
         private bool NoMore;
@@ -189,7 +190,8 @@ namespace Ecombeta.Views
                             }
                             else
                             {
-                                var yx = await DisplayAlert("Order Cant be Placed", $"{item.ProductName} is out of stock",
+                                var yx = await DisplayAlert("Order Cant be Placed",
+                                    $"{item.ProductName} is out of stock",
                                     "Back to Cart", "Home");
                                 if (yx)
                                 {
@@ -225,8 +227,10 @@ namespace Ecombeta.Views
                             await wc.Order.Add(order);
                             var activityIndicator = new ActivityIndicator
                                 {IsRunning = true, HeightRequest = 100, WidthRequest = 100};
-
-                            FullCart.CartList.Clear();
+                            Preferences.Clear("Cart");
+                            Preferences.Remove("Cart");
+                         
+                            FlashFullCart.CartList.Clear();
                             items.Items.Clear();
                             var masterDetailPage = new Home();
                             masterDetailPage.Detail = new NavigationPage(new Checkedout());

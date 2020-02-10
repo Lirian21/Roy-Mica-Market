@@ -55,10 +55,10 @@ namespace Ecombeta.Views
         {
             try
             {
-                ProductProperties.Init.FlashSale = true;
+                SingleProductView.FlashSale = true;
                 var btn = (Button) sender;
                 var a = btn.BindingContext;
-                ProductProperties.Init.SingleId = Convert.ToInt32(a);
+                SingleProductView.SingleId = Convert.ToInt32(a);
                 await Navigation.PushAsync(new SingleProductView());
             }
             catch (Exception ex)

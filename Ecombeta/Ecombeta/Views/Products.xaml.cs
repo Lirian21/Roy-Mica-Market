@@ -54,7 +54,7 @@ namespace Ecombeta.Views
 
 
                 //var Flashmatch = p.Where(m => m.tags != null && m.tags.Any(u => u.name == "Flash Sale's")).ToList();
-                ProductProperties.Init.FlashSale = SuppliersVariables.Init.TagId == "1486";
+                SingleProductView.FlashSale = SuppliersVariables.Init.TagId == "1486";
 
                 productsListView.FlowItemsSource = products;
             }
@@ -71,7 +71,7 @@ namespace Ecombeta.Views
                 var btn = (Button) sender;
                 var a = btn.BindingContext;
 
-                ProductProperties.Init.SingleId = Convert.ToInt32(a);
+                SingleProductView.SingleId = Convert.ToInt32(a);
                 await Navigation.PushAsync(new SingleProductView());
             }
             catch (Exception ex)

@@ -11,6 +11,4 @@
 
         public int id { get; set; }
     }
-
-   
 }

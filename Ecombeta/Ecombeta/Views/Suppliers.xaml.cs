@@ -83,7 +83,7 @@ namespace Ecombeta.Views
                 Crashes.TrackError(ex);
             }
         }
-        
+
 
         private void SupplierClicked(object sender, EventArgs args)
         {

@@ -6,16 +6,6 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>https://mm-app.co.za/</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-		</dict>
 	</dict>
 	<key>UIDeviceFamily</key>
 	<array>
@@ -50,7 +40,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.LionmarketingEcombeta</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIStatusBarStyle</key>
@@ -64,16 +54,15 @@
 	<string>LaunchScreen</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>remote-notification</string>
-		<string>processing</string>
-	</array>
 	<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 	<true/>
 	<key>CFBundleName</key>
 	<string>Mica Market</string>
-<key>NSAppTransportSecurity</key> <dict> <key>NSAllowsArbitraryLoads</key> <true/> </dict>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.1</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

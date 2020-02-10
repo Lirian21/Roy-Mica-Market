@@ -42,12 +42,13 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <LangVersion>8.0</LangVersion>
-    <CodesignProvision>VS: com.LionmarketingEcombeta Development</CodesignProvision>
-    <CodesignKey>iPhone Developer: Russell Nagel (X5D23J6C9N)</CodesignKey>
+    <CodesignProvision>AdhockRoy</CodesignProvision>
+    <CodesignKey>Apple Distribution: Lion Marketing CC (NGM5584RR4)</CodesignKey>
     <ConsolePause>true</ConsolePause>
     <ExternalConsole>false</ExternalConsole>
     <Commandlineparameters></Commandlineparameters>
-    <RunWithWarnings></RunWithWarnings>
+    <RunWithWarnings>false</RunWithWarnings>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,13 +83,14 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer: Russell Nagel (X5D23J6C9N)</CodesignKey>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <LangVersion>8.0</LangVersion>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CodesignProvision>VS: com.LionmarketingEcombeta Development</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <IpaIncludeArtwork>true</IpaIncludeArtwork>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -139,8 +141,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
@@ -152,11 +152,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appstore.png" />
     <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash.png" />
     <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash-1.png" />
     <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash-2.png" />
     <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\MicaAppStoreLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

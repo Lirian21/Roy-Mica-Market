@@ -9,9 +9,6 @@ namespace Ecombeta.Models
     [DataContract]
     public class CartList : INotifyPropertyChanged
     {
-        public string QuantityCheck { get; set; }
-
-
         private bool _inStock;
 
         private bool _isVisible;
@@ -20,6 +17,7 @@ namespace Ecombeta.Models
         private string _stockStatus;
 
         private decimal _tPrice;
+        public string QuantityCheck { get; set; }
 
         [DataMember] public string ProductName { get; set; }
 

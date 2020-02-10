@@ -7,13 +7,12 @@ namespace Ecombeta.Models
 {
     public class FlashCartlist : INotifyPropertyChanged
     {
-        public string QuantityCheck { get; set; }
-
         private bool _inStock;
 
         private string _stockStatus;
 
         private decimal _totalPrice;
+        public string QuantityCheck { get; set; }
         public string ProductName { get; set; }
 
         public bool InStock

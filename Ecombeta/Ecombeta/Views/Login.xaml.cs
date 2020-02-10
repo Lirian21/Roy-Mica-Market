@@ -61,10 +61,7 @@ namespace Ecombeta.Views
                         }
                     });
                     var oldlist = FetchCustomers.Customers ?? new List<Customer>();
-                    if (x.Count == 0)
-                    {
-                        break;
-                    }
+                    if (x.Count == 0) break;
 
                     //1st loop customers needs to = 100
                     //2nd loop oldist needs to = 40+
@@ -133,7 +130,7 @@ namespace Ecombeta.Views
                         Users.LoggedIn = true;
                         Application.Current.SavePropertiesAsync();
                         Application.Current.MainPage.DisplayAlert("Complete", "Login Process Complete, Enjoy", "OK");
-                        Application.Current.MainPage = new Home();
+                        Application.Current.MainPage = new Home();  
                     }
                 //if (found != null)
                 //{

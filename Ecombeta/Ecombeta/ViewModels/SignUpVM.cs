@@ -60,10 +60,8 @@ namespace Ecombeta.ViewModel
             //null or empty field validation, check weather email and password is null or empty
 
             if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
-            {
                 await Application.Current.MainPage.DisplayAlert("Empty Values", "Please enter Email and Password",
                     "OK");
-            }
         }
     }
 }

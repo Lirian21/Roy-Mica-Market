@@ -8,6 +8,7 @@ using Ecombeta.Models;
 using Ecombeta.Services;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using WooCommerceNET;
 using WooCommerceNET.WooCommerce.v2;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -20,16 +21,16 @@ namespace Ecombeta.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Cart : ContentPage, INotifyPropertyChanged
     {
-        private int currentID;
-        private int CurrentListItem;
-        private ItemList items;
-        private List<OrderLineItem> Lineitems;
-        private bool ProductBoughtOut;
-        private List<string> Productname;
-        private readonly List<CartList> SimpleCartlist;
-        private Product SingleProduct;
-        private bool SpamClick;
-        private Variation VarProduct;
+        private readonly List<CartList> _simpleCartlist;
+        private int _currentId;
+        private int _currentListItem;
+        private ItemList _items;
+        private List<OrderLineItem> _orderlineitems;
+        private bool _productBoughtOut;
+        private List<string> _productnames;
+        private Product _singleProduct;
+        private bool _spamClick;
+        private Variation _varProduct;
 
 
         public Cart()
@@ -40,15 +41,15 @@ namespace Ecombeta.Views
                 InitializeComponent();
 
                 var x = FullCart.CartList;
-                SimpleCartlist = x;
+                _simpleCartlist = x;
                 if (x?.Any() != true || x.Any() != true || !x.Any())
                 {
                     var CartP = new CartPersistance();
-                    var FetchedCart = Preferences.Get("Cart", "default_value");
-                    CartP.DePersist(FetchedCart);
-                    items = new ItemList(FullCart.CartList);
-                    cartView.ItemsSource = items.Items;
-                    if (!FetchedCart.Any() || FetchedCart == null)
+                    var fetchedCart = Preferences.Get("Cart", "default_value");
+                    CartP.DePersist(fetchedCart);
+                    _items = new ItemList(FullCart.CartList);
+                    cartView.ItemsSource = _items.Items;
+                    if (!fetchedCart.Any())
                     {
                         NavigationPage.SetHasBackButton(this, false);
                         Navigation.PushAsync(new CartEmprty());
@@ -56,11 +57,11 @@ namespace Ecombeta.Views
                 }
                 else
                 {
-                    var FetchedCart = Preferences.Get("Cart", "default_value");
-                    FullCart.CartList = JsonConvert.DeserializeObject<List<CartList>>(FetchedCart);
-                    var y = JsonConvert.DeserializeObject<List<CartList>>(FetchedCart);
-                    items = new ItemList(y);
-                    cartView.ItemsSource = items.Items;
+                    var fetchedCart = Preferences.Get("Cart", "default_value");
+                    FullCart.CartList = JsonConvert.DeserializeObject<List<CartList>>(fetchedCart);
+                    var y = JsonConvert.DeserializeObject<List<CartList>>(fetchedCart);
+                    _items = new ItemList(y);
+                    cartView.ItemsSource = _items.Items;
                 }
 
                 Init();
@@ -73,7 +74,7 @@ namespace Ecombeta.Views
 
         private async Task Init()
         {
-            SpamClick = false;
+            _spamClick = false;
             Backgroundimage.BackgroundImageSource =
                 "https://mm-app.co.za/wp-content/uploads/2019/12/OrangeBluepoly.jpg";
         }
@@ -89,10 +90,10 @@ namespace Ecombeta.Views
                 var obj = (CartList) e.SelectedItem;
                 var ide = Convert.ToInt32(obj.PId);
 
-                foreach (var item in items.Items)
+                foreach (var item in _items.Items)
                     if (ide == item.PId)
                     {
-                        currentID = item.PId;
+                        _currentId = item.PId;
                         item.TotalDynamicPrice = item.Price * Convert.ToDecimal(item.ProductQuantity);
                     }
             }
@@ -112,8 +113,8 @@ namespace Ecombeta.Views
                 var item = btn.BindingContext;
                 check = Convert.ToInt32(item);
 
-                var listitem = (from itm in items.Items where itm.PId == check select itm).FirstOrDefault();
-                items.Items.Remove(listitem);
+                var listitem = (from itm in _items.Items where itm.PId == check select itm).FirstOrDefault();
+                _items.Items.Remove(listitem);
                 var xf = (from itm in FullCart.CartList where itm.PId == check select itm).FirstOrDefault();
                 FullCart.CartList.Remove(xf);
 
@@ -131,8 +132,8 @@ namespace Ecombeta.Views
         {
             try
             {
-                foreach (var listitem in items.Items)
-                    if (currentID == listitem.PId)
+                foreach (var listitem in _items.Items)
+                    if (_currentId == listitem.PId)
                     {
                         if (listitem.IncrementQ == 0 || listitem.IncrementQ.ToString() == "") listitem.IncrementQ = 1;
                         listitem.TotalDynamicPrice = listitem.Price * Convert.ToDecimal(listitem.ProductQuantity);
@@ -153,7 +154,7 @@ namespace Ecombeta.Views
                 var a = btn.BindingContext;
                 check = Convert.ToInt32(a);
 
-                foreach (var item in SimpleCartlist)
+                foreach (var item in _simpleCartlist)
                     if (check == item.PId)
                         item.TotalDynamicPrice = item.Price * Convert.ToDecimal(item.ProductQuantity);
             }
@@ -168,16 +169,19 @@ namespace Ecombeta.Views
             try
             {
                 //You cant checkout if your not logged in There are no Guest Checkouts(I can But would rather not)
-                if (Users.LoggedIn && SpamClick == false)
+                if (Users.LoggedIn && _spamClick == false)
                 {
-                    if (Lineitems == null) Lineitems = new List<OrderLineItem>();
+                    if (_orderlineitems == null) _orderlineitems = new List<OrderLineItem>();
 
-                    var wc = new WCObject(GlobalVariable.Init.rest);
+                     RestAPI rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v2/",
+                     "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
+
+                     var wc = new WCObject(rest);
 
                     await IsInStock();
                     var order = new Order {status = "on-hold", customer_id = Users.CId};
-                    foreach (var item in SimpleCartlist)
-                        if (SimpleCartlist.Any(i => i.InStock == false))
+                    foreach (var item in _simpleCartlist)
+                        if (_simpleCartlist.Any(i => i.InStock == false))
                         {
                             var yx = await DisplayAlert("Whoops",
                                 "One or more Item is out of Stock Please check and try again", "Back to Cart", "Home");
@@ -191,7 +195,7 @@ namespace Ecombeta.Views
                                 Application.Current.MainPage = masterDetailPage;
                             }
                         }
-                        else if (SimpleCartlist.All(i => i.InStock))
+                        else if (_simpleCartlist.All(i => i.InStock))
                         {
                             if (item.StockStatus == "instock")
                             {
@@ -199,8 +203,8 @@ namespace Ecombeta.Views
                                 if (item.VariationId <= 0) item.VariationId = item.PId;
                                 if (item.StockQuantity == 0)
                                 {
-                                    ProductBoughtOut = true;
-                                    Productname.Add(item.ProductName);
+                                    _productBoughtOut = true;
+                                    _productnames.Add(item.ProductName);
                                 }
 
                                 order.line_items = order.line_items ?? new List<OrderLineItem>();
@@ -209,7 +213,8 @@ namespace Ecombeta.Views
                             }
                             else
                             {
-                                var yx = await DisplayAlert("Order Cant be Placed", $"{item.ProductName} is out of stock",
+                                var yx = await DisplayAlert("Order Cant be Placed",
+                                    $"{item.ProductName} is out of stock",
                                     "Back to Cart", "Home");
                                 if (yx)
                                 {
@@ -223,9 +228,9 @@ namespace Ecombeta.Views
                             }
                         }
 
-                    if (ProductBoughtOut)
+                    if (_productBoughtOut)
                     {
-                        var yx = await DisplayAlert("Order Cant be Placed", $"Not enough stock for {Productname}",
+                        var yx = await DisplayAlert("Order Cant be Placed", $"Not enough stock for {_productnames}",
                             "Back to Cart", "Home");
                         if (yx)
                         {
@@ -237,18 +242,18 @@ namespace Ecombeta.Views
                             Application.Current.MainPage = masterDetailPage;
                         }
                     }
-                    else if (SimpleCartlist.All(i => i.InStock))
+                    else if (_simpleCartlist.All(i => i.InStock))
                     {
-                        if (items != null && SpamClick == false)
+                        if (_items != null && _spamClick == false)
                         {
-                            SpamClick = true;
+                            _spamClick = true;
                             await wc.Order.Add(order);
                             var activityIndicator = new ActivityIndicator
                                 {IsRunning = true, HeightRequest = 100, WidthRequest = 100};
                             Preferences.Clear("Cart");
                             Preferences.Remove("Cart");
                             FullCart.CartList.Clear();
-                            items.Items.Clear();
+                            _items.Items.Clear();
                             var masterDetailPage = new Home();
                             masterDetailPage.Detail = new NavigationPage(new Checkedout());
                             Application.Current.MainPage = masterDetailPage;
@@ -260,12 +265,12 @@ namespace Ecombeta.Views
                             Application.Current.MainPage = masterDetailPage;
                         }
 
-                        SpamClick = true;
+                        _spamClick = true;
                     }
                 }
                 else
                 {
-                    if (SpamClick)
+                    if (_spamClick)
                     {
                         await DisplayAlert("Woops", "Your trying to order twice", "Ok");
                     }
@@ -295,22 +300,22 @@ namespace Ecombeta.Views
         {
             TaskLoader.IsRunning = true;
             LoadingOverlay.IsVisible = true;
-            foreach (var CartItem in SimpleCartlist)
+            foreach (var CartItem in _simpleCartlist)
             {
                 var wc = new WooCommerceNET.WooCommerce.v3.WCObject(GlobalVariable.Init.rest);
 
-                SingleProduct = await wc.Product.Get(CartItem.PId);
+                _singleProduct = await wc.Product.Get(CartItem.PId);
 
-                VarProduct = await wc.Product.Variations.Get(CartItem.VariationId, CartItem.VariantParentId);
+                _varProduct = await wc.Product.Variations.Get(CartItem.VariationId, CartItem.VariantParentId);
 
-                if (SingleProduct != null)
+                if (_singleProduct != null)
                 {
-                    CurrentListItem = CartItem.PId;
+                    _currentListItem = CartItem.PId;
                     await SingleCheck();
                 }
-                else if (VarProduct != null)
+                else if (_varProduct != null)
                 {
-                    CurrentListItem = CartItem.PId;
+                    _currentListItem = CartItem.PId;
                     await VariableCheck();
                 }
             }
@@ -324,23 +329,28 @@ namespace Ecombeta.Views
         {
             try
             {
-                foreach (var CartItem in SimpleCartlist)
-                    if (CurrentListItem == CartItem.PId)
+                foreach (var CartItem in _simpleCartlist)
+                    if (_currentListItem == CartItem.PId)
                     {
-                        if (SingleProduct.stock_quantity == 0 || SingleProduct.stock_status == "outofstock" ||
-                            CartItem.ProductQuantity > SingleProduct.stock_quantity)
+                        if (_singleProduct.stock_quantity == null)
+                        {
+                            //CartItem.InStock = true;
+                            _singleProduct.stock_quantity = 999999;
+                        }
+                        if (_singleProduct.stock_quantity == 0 || _singleProduct.stock_status == "outofstock" ||
+                            CartItem.ProductQuantity > _singleProduct.stock_quantity)
                         {
                             CartItem.InStock = false;
                             var AlertResult = await DisplayAlert("Not Enough Products",
-                                $"There is this much Stock left: {SingleProduct.stock_quantity} for {SingleProduct.name}",
+                                $"There is this much Stock left: {_singleProduct.stock_quantity} for {_singleProduct.name}",
                                 "Back to Cart", "Keep Shopping");
                             if (AlertResult)
                             {
                                 CartItem.InStock = false;
-                                CartItem.StockQuantity = Convert.ToInt32(SingleProduct.stock_quantity);
-                                items = new ItemList(FullCart.CartList);
+                                CartItem.StockQuantity = Convert.ToInt32(_singleProduct.stock_quantity);
+                                _items = new ItemList(FullCart.CartList);
                                 cartView.BeginRefresh();
-                                CartItem.StockStatus = SingleProduct.stock_status;
+                                CartItem.StockStatus = _singleProduct.stock_status;
                                 cartView.EndRefresh();
                                 return;
                             }
@@ -349,8 +359,8 @@ namespace Ecombeta.Views
                             masterDetailPage.Detail = new NavigationPage(new Home());
                             Application.Current.MainPage = masterDetailPage;
                         }
-                        else if (SingleProduct.stock_quantity != 0 && SingleProduct.stock_status == "instock" &&
-                                 CartItem.ProductQuantity <= SingleProduct.stock_quantity)
+                        else if (_singleProduct.stock_quantity != 0 && _singleProduct.stock_status == "instock" &&
+                                 CartItem.ProductQuantity <= _singleProduct.stock_quantity)
                         {
                             CartItem.InStock = true;
                         }
@@ -366,23 +376,28 @@ namespace Ecombeta.Views
         {
             try
             {
-                foreach (var CartItem in SimpleCartlist)
-                    if (CurrentListItem == CartItem.PId)
+                foreach (var CartItem in _simpleCartlist)
+
+                    if (_currentListItem == CartItem.PId)
                     {
-                        if (VarProduct.stock_quantity == 0 || VarProduct.stock_status == "outofstock" ||
-                            CartItem.ProductQuantity > VarProduct.stock_quantity)
+                        if (_varProduct.stock_quantity == null)
+                        {
+                            _varProduct.stock_quantity = 999999;
+                        }
+                        if (_varProduct.stock_quantity == 0 || _varProduct.stock_status == "outofstock" ||
+                            CartItem.ProductQuantity > _varProduct.stock_quantity)
                         {
                             CartItem.InStock = false;
                             var AlertResult = await DisplayAlert("Not Enough Products",
-                                $"There is this much Stock left: {VarProduct.stock_quantity} for {CartItem.ProductName} {VarProduct.attributes[2].option}",
+                                $"There is this much Stock left: {_varProduct.stock_quantity} for {CartItem.ProductName} {_varProduct.attributes[2].option}",
                                 "Back to Cart", "Keep Shopping");
                             if (AlertResult)
                             {
                                 CartItem.InStock = false;
-                                CartItem.StockQuantity = Convert.ToInt32(VarProduct.stock_quantity);
-                                items = new ItemList(FullCart.CartList);
+                                CartItem.StockQuantity = Convert.ToInt32(_varProduct.stock_quantity);
+                                _items = new ItemList(FullCart.CartList);
                                 cartView.BeginRefresh();
-                                CartItem.StockStatus = VarProduct.stock_status;
+                                CartItem.StockStatus = _varProduct.stock_status;
                                 cartView.EndRefresh();
                                 return;
                             }
@@ -391,8 +406,8 @@ namespace Ecombeta.Views
                             masterDetailPage.Detail = new NavigationPage(new Home());
                             Application.Current.MainPage = masterDetailPage;
                         }
-                        else if (VarProduct.stock_quantity != 0 && VarProduct.stock_status == "instock" &&
-                                 CartItem.ProductQuantity <= VarProduct.stock_quantity)
+                        else if (_varProduct.stock_quantity != 0 && _varProduct.stock_status == "instock" &&
+                                 CartItem.ProductQuantity <= _varProduct.stock_quantity)
                         {
                             CartItem.InStock = true;
                         }

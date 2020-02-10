@@ -168,35 +168,7 @@ namespace Ecombeta.Models
 
     public class ProductProperties : INotifyPropertyChanged
     {
-        public static VariationImage Img;
-        public bool FlashSale;
-        public string ImgSource;
-        public bool Unlimited;
-        public List<CartList> OldList;
-        public List<OrderLineItem> OrdersLine;
-        public bool Saving;
-        public Product SProduct;
-        public int TempId;
-        public string TempIsAvb;
-        public string TempStockStatus;
-
-        public List<WooCommerceNET.WooCommerce.v3.Variation> VarProduct;
-        public string Title { get; set; }
-        public string CustomEmail { set; get; }
-        public int Index { get; set; }
-        public double ProductQuantity { get; set; }
-        public decimal TemporaryPrice { get; set; }
-        public object Increment { get; set; }
-        public decimal PriceProcessing { get; set; }
-        public int SingleId { get; set; }
-        public string Name { get; set; }
-        public double TempStockQ { get; set; }
-        public bool ProductE { get; set; }
-        public int TempIncrementQ { get; set; }
-        public int TempMinQ { get; set; }
-        public string Time { get; set; }
-        public int VarId { get; set; }
-        public double DynamicPrice { get; set; }
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
