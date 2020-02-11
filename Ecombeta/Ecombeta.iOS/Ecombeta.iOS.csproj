@@ -119,6 +119,7 @@
     <BundleResource Include="Resources\IC8.png" />
     <BundleResource Include="Resources\IC9.png" />
     <Compile Include="ViewCellRendererForiOS.cs" />
+    <BundleResource Include="Resources\MicaSplash.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -152,13 +153,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
-    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash.png" />
-    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash-1.png" />
-    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash-2.png" />
     <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\MicaAppStoreLogo.png" />
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\MicaSplash.png" />
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\MicaSplash-1.png" />
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\MicaSplash-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -11,8 +11,8 @@ namespace Ecombeta.iOS
     {
         public override UITableViewCell GetCell(Cell item, UITableViewCell reusableCell, UITableView tv)
         {
-            var cell = base.GetCell(item, reusableCell, tv);
-            cell.SelectedBackgroundView = new UIView {BackgroundColor = UIColor.FromRGBA(255, 255, 255, 0)};
+           var cell = base.GetCell(item, reusableCell, tv);
+            cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 
 
             return cell;

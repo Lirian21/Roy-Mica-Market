@@ -10,15 +10,28 @@
              x:Name="Pageback">
 
     <ContentPage.Content>
-
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+         <Grid>
+            <StackLayout
+                x:Name="LoadingOverlay"
+                IsVisible="False"
+            
+                BackgroundColor="Black" Opacity="0.5">
+                <ActivityIndicator
+                    x:Name="TaskLoader"
+                    IsRunning="False"
+                    Scale="3"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Color="White" />
+            </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
 
 
             <ListView x:Name="variablelistview"
                       HasUnevenRows="True"
                       SeparatorVisibility="Default"
                       SeparatorColor="Black"
-                      AbsoluteLayout.LayoutFlags="PositionProportional"
+                      
                       VerticalOptions="FillAndExpand"
                       HorizontalOptions="FillAndExpand">
                 <!-- HasUnevenRows="True"  -->
@@ -116,13 +129,13 @@
 
                                     <Stepper x:Name="stepper" Maximum="{Binding stock_quantity}"
                                              Value="{Binding productQuantity}"
-                                             Minimum="{Binding meta_data[1].value}"
-                                             Increment="{Binding meta_data[2].value}"
+                                             Minimum="{Binding download_expiry}"
+                                             Increment="{Binding download_limit}"
                                              HorizontalOptions="Center"
 
                                              ValueChanged="StepperValueChanged" />
                                     <Button IsVisible="{Binding _virtual}" BorderColor="#0088d3"
-                                            BackgroundColor="#0088d3" CornerRadius="10" Padding="10" TextColor="White"
+                                            BackgroundColor="#0088d3"   CornerRadius="10" Padding="10" TextColor="White"
                                             x:Name="Pricevalue" HorizontalOptions="Center" VerticalOptions="Center"
                                             BindingContext="{Binding id}" Text="Add To Cart" Clicked="AddtoCart" />
                                 </StackLayout>
@@ -132,6 +145,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+         </StackLayout>
+             </Grid>
     </ContentPage.Content>
 </ContentPage>

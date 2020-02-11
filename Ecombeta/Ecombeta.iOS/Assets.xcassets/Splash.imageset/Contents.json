@@ -4,17 +4,17 @@
       "idiom": "universal"
     },
     {
-      "filename": "Splash.png",
+      "filename": "MicaSplash.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
-      "filename": "Splash-1.png",
+      "filename": "MicaSplash-1.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
-      "filename": "Splash-2.png",
+      "filename": "MicaSplash-2.png",
       "scale": "3x",
       "idiom": "universal"
     },
@@ -525,6 +525,7 @@
   ],
   "info": {
     "version": 1,
-    "author": "xcode"
+    "author": "xcode",
+    "template-rendering-intent": "original"
   }
 }

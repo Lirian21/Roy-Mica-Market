@@ -8,7 +8,7 @@
              BackgroundImageSource="https://mm-app.co.za/wp-content/uploads/2019/12/Bluepoly.jpg"
              x:Class="Ecombeta.Views.OrderList">
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <Grid>
             <StackLayout
                 x:Name="LoadingOverlay"
                 IsVisible="False"
@@ -101,6 +101,6 @@
                 </ListView>
 
             </StackLayout>
-        </AbsoluteLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

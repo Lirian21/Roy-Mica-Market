@@ -25,6 +25,8 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <ReleaseVersion>1.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -159,6 +161,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Splash.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ecombeta\Ecombeta.csproj">
@@ -183,9 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Orders.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Splash.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Supplier.png" />

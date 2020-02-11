@@ -251,16 +251,16 @@
             <e p="29.png" t="Include" />
             <e p="40-1.png" t="Include" />
             <e p="40-2.png" t="Include" />
-            <e p="40.png" t="Include" />
             <e p="58-1.png" t="Include" />
             <e p="58.png" t="Include" />
-            <e p="60.png" t="Include" />
             <e p="76.png" t="Include" />
             <e p="80-1.png" t="Include" />
             <e p="80.png" t="Include" />
             <e p="87.png" t="Include" />
-            <e p="appstore.png" t="Include" />
             <e p="Contents.json" t="Include" />
+            <e p="Icon-App-20x20@2x.png" t="Include" />
+            <e p="Icon-App-20x20@3x.png" t="Include" />
+            <e p="MicaAppStoreLogo.png" t="Include" />
           </e>
           <e p="Image.imageset" t="Include">
             <e p="Contents.json" t="Include" />

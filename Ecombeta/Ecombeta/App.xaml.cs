@@ -41,7 +41,7 @@ namespace Ecombeta
 
                     mPage = new Home();
 
-                    MainPage = new NavigationPage(mPage);
+                   MainPage = new NavigationPage(mPage);
 
 
                     CrossFirebasePushNotification.Current.Subscribe("general");
@@ -50,23 +50,8 @@ namespace Ecombeta
                         Debug.WriteLine($"TOKEN REC: {p.Token}");
                     };
 
-                    CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
-                    {
-                        try
-                        {
-                            Debug.WriteLine("Received");
-                            if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
-                                Device.BeginInvokeOnMainThread(() =>
-                                {
-                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
-                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
-                                });
-                        }
-                        catch (IOException ex)
-                        {
-                            Crashes.TrackError(ex);
-                        }
-                    };
+                 
+
                     CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
                     {
                         //System.Diagnostics.Debug.WriteLine(p.Identifier);
@@ -90,6 +75,27 @@ namespace Ecombeta
                                 HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
                             });
                     };
+
+
+
+                       CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
+                    {
+                        try
+                        {
+                            Debug.WriteLine("Received");
+                            if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
+                                Device.BeginInvokeOnMainThread(() =>
+                                {
+                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
+                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
+                                });
+                        }
+                        catch (IOException ex)
+                        {
+                            Crashes.TrackError(ex);
+                        }
+                    };
+
 
                     CrossFirebasePushNotification.Current.OnNotificationAction += (s, p) =>
                     {
@@ -133,180 +139,180 @@ namespace Ecombeta
 
         protected override void OnStart()
         {
-            Debug.WriteLine("OnStart");
-            try
+            //Debug.WriteLine("OnStart");
+            //try
+            //{
+            //    MakeWebRequest();
+            //    if (IsConnected)
+            //    {
+            //        var rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/",
+            //            "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
+
+            //        WooObject = new WCObject(rest);
+
+
+            //        AppCenter.Start("android=e41ba7e7-c843-43b4-977f-f71ec890ef0c;" +
+            //                        "ios=5a0c8744-6679-45cb-8dfe-bba4f93befb3;",
+            //            typeof(Analytics), typeof(Crashes));
+
+
+            //        if (Preferences.ContainsKey("Cart"))
+            //        {
+            //            var FetchingCart = Preferences.Get("Cart", "default_value");
+            //            FullCart.CartList = JsonConvert.DeserializeObject<List<CartList>>(FetchingCart);
+            //        }
+
+            //        if (FullCart.CartList?.Any() != true || FullCart.CartList.Any() != true ||
+            //            FullCart.CartList.Count() == 0)
+            //        {
+            //            CartPersistance.LoadedCart = false;
+            //        }
+            //        else
+            //        {
+            //            CartPersistance.LoadedCart = true;
+            //            var jsonString = JsonConvert.SerializeObject(FullCart.CartList);
+            //            CartPersistance.PerCart = jsonString;
+            //        }
+
+            //        CrossFirebasePushNotification.Current.Subscribe("general");
+            //        CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            //        {
+            //            Debug.WriteLine($"TOKEN REC: {p.Token}");
+            //        };
+
+            CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
             {
-                MakeWebRequest();
-                if (IsConnected)
+                try
                 {
-                    var rest = new RestAPI("http://mm-app.co.za/wp-json/wc/v3/",
-                        "ck_a25f96835aabfc64b09613eb8ec4a8c9bcd5dcd0", "cs_8f247c22353f25b905c96171379b89714f8f4003");
-
-                    WooObject = new WCObject(rest);
-
-
-                    AppCenter.Start("android=e41ba7e7-c843-43b4-977f-f71ec890ef0c;" +
-                                    "ios=5a0c8744-6679-45cb-8dfe-bba4f93befb3;",
-                        typeof(Analytics), typeof(Crashes));
-
-
-                    if (Preferences.ContainsKey("Cart"))
-                    {
-                        var FetchingCart = Preferences.Get("Cart", "default_value");
-                        FullCart.CartList = JsonConvert.DeserializeObject<List<CartList>>(FetchingCart);
-                    }
-
-                    if (FullCart.CartList?.Any() != true || FullCart.CartList.Any() != true ||
-                        FullCart.CartList.Count() == 0)
-                    {
-                        CartPersistance.LoadedCart = false;
-                    }
-                    else
-                    {
-                        CartPersistance.LoadedCart = true;
-                        var jsonString = JsonConvert.SerializeObject(FullCart.CartList);
-                        CartPersistance.PerCart = jsonString;
-                    }
-
-                    CrossFirebasePushNotification.Current.Subscribe("general");
-                    CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
-                    {
-                        Debug.WriteLine($"TOKEN REC: {p.Token}");
-                    };
-
-                    CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
-                    {
-                        try
+                    Debug.WriteLine("Received");
+                    if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
+                        Device.BeginInvokeOnMainThread(() =>
                         {
-                            Debug.WriteLine("Received");
-                            if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
-                                Device.BeginInvokeOnMainThread(() =>
-                                {
-                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
-                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
-                                });
-                        }
-                        catch (IOException ex)
-                        {
-                            Crashes.TrackError(ex);
-                        }
-                    };
-                    CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
-                    {
-                        //System.Diagnostics.Debug.WriteLine(p.Identifier);
-
-                        Debug.WriteLine("Opened");
-                        foreach (var data in p.Data) Debug.WriteLine($"{data.Key} : {data.Value}");
-
-                        if (!string.IsNullOrEmpty(p.Identifier))
-                            Device.BeginInvokeOnMainThread(() => { HomeVariables.Init.Message = p.Identifier; });
-                        else if (p.Data.ContainsKey("color"))
-                            Device.BeginInvokeOnMainThread(() =>
-                            {
-                                mPage.Navigation.PushAsync(new ContentPage
-                                {
-                                    BackgroundColor = Color.FromHex($"{p.Data["color"]}")
-                                });
-                            });
-                        else if (p.Data.ContainsKey("title"))
-                            Device.BeginInvokeOnMainThread(() =>
-                            {
-                                HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
-                            });
-                    };
-
-                    CrossFirebasePushNotification.Current.OnNotificationAction += (s, p) =>
-                    {
-                        Debug.WriteLine("Action");
-
-                        if (!string.IsNullOrEmpty(p.Identifier))
-                        {
-                            Debug.WriteLine($"ActionId: {p.Identifier}");
-                            foreach (var data in p.Data) Debug.WriteLine($"{data.Key} : {data.Value}");
-                        }
-                    };
-
-                    CrossFirebasePushNotification.Current.OnNotificationDeleted += (s, p) =>
-                    {
-                        Debug.WriteLine("Dismissed");
-                    };
+                            HomeVariables.Init.Message = $"{p.Data["body"]}";
+                            HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
+                        });
                 }
-                else
+                catch (IOException ex)
                 {
-                    MainPage = new NoInternet();
+                    Crashes.TrackError(ex);
                 }
-            }
-            catch (IOException ex)
-            {
-                Crashes.TrackError(ex);
-            }
+            };
+            //        CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
+            //        {
+            //            //System.Diagnostics.Debug.WriteLine(p.Identifier);
+
+            //            Debug.WriteLine("Opened");
+            //            foreach (var data in p.Data) Debug.WriteLine($"{data.Key} : {data.Value}");
+
+            //            if (!string.IsNullOrEmpty(p.Identifier))
+            //                Device.BeginInvokeOnMainThread(() => { HomeVariables.Init.Message = p.Identifier; });
+            //            else if (p.Data.ContainsKey("color"))
+            //                Device.BeginInvokeOnMainThread(() =>
+            //                {
+            //                    mPage.Navigation.PushAsync(new ContentPage
+            //                    {
+            //                        BackgroundColor = Color.FromHex($"{p.Data["color"]}")
+            //                    });
+            //                });
+            //            else if (p.Data.ContainsKey("title"))
+            //                Device.BeginInvokeOnMainThread(() =>
+            //                {
+            //                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
+            //                });
+            //        };
+
+            //        CrossFirebasePushNotification.Current.OnNotificationAction += (s, p) =>
+            //        {
+            //            Debug.WriteLine("Action");
+
+            //            if (!string.IsNullOrEmpty(p.Identifier))
+            //            {
+            //                Debug.WriteLine($"ActionId: {p.Identifier}");
+            //                foreach (var data in p.Data) Debug.WriteLine($"{data.Key} : {data.Value}");
+            //            }
+            //        };
+
+            //        CrossFirebasePushNotification.Current.OnNotificationDeleted += (s, p) =>
+            //        {
+            //            Debug.WriteLine("Dismissed");
+            //        };
+            //    }
+            //    else
+            //    {
+            //        MainPage = new NoInternet();
+            //    }
+            //}
+            //catch (IOException ex)
+            //{
+            //    Crashes.TrackError(ex);
+            //}
         }
 
 
         protected override void OnSleep()
         {
-            Debug.WriteLine("OnSleep");
-            try
-            {
-                if (IsConnected)
-                {
-                    mPage = new Home();
+            //Debug.WriteLine("OnSleep");
+            //try
+            //{
+            //    if (IsConnected)
+            //    {
+            //        mPage = new Home();
 
-                    MainPage = new NavigationPage(mPage);
+            //        MainPage = new NavigationPage(mPage);
 
-                    CrossFirebasePushNotification.Current.Subscribe("general");
-                    CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
-                    {
-                        Debug.WriteLine($"TOKEN REC: {p.Token}");
-                    };
+            //        CrossFirebasePushNotification.Current.Subscribe("general");
+            //        CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            //        {
+            //            Debug.WriteLine($"TOKEN REC: {p.Token}");
+            //        };
 
-                    CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
-                    {
-                        try
-                        {
-                            Debug.WriteLine("Received");
-                            if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
-                                Device.BeginInvokeOnMainThread(() =>
-                                {
-                                    HomeVariables.Init.Message = $"{p.Data["body"]}";
-                                    HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
-                                });
-                        }
-                        catch (Exception ex)
-                        {
-                            Crashes.TrackError(ex);
-                        }
-                    };
-                    CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
-                    {
-                        //System.Diagnostics.Debug.WriteLine(p.Identifier);
-                    };
+            //        CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
+            //        {
+            //            try
+            //            {
+            //                Debug.WriteLine("Received");
+            //                if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
+            //                    Device.BeginInvokeOnMainThread(() =>
+            //                    {
+            //                        HomeVariables.Init.Message = $"{p.Data["body"]}";
+            //                        HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
+            //                    });
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                Crashes.TrackError(ex);
+            //            }
+            //        };
+            //        CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
+            //        {
+            //            //System.Diagnostics.Debug.WriteLine(p.Identifier);
+            //        };
 
-                    CrossFirebasePushNotification.Current.OnNotificationAction += (s, p) =>
-                    {
-                        Debug.WriteLine("Action");
+            //        CrossFirebasePushNotification.Current.OnNotificationAction += (s, p) =>
+            //        {
+            //            Debug.WriteLine("Action");
 
-                        if (string.IsNullOrEmpty(p.Identifier)) return;
-                        Debug.WriteLine($"ActionId: {p.Identifier}");
-                        foreach (var data in p.Data) Debug.WriteLine($"{data.Key} : {data.Value}");
-                    };
+            //            if (string.IsNullOrEmpty(p.Identifier)) return;
+            //            Debug.WriteLine($"ActionId: {p.Identifier}");
+            //            foreach (var data in p.Data) Debug.WriteLine($"{data.Key} : {data.Value}");
+            //        };
 
-                    CrossFirebasePushNotification.Current.OnNotificationDeleted += (s, p) =>
-                    {
-                        Debug.WriteLine("Dismissed");
-                    };
+            //        CrossFirebasePushNotification.Current.OnNotificationDeleted += (s, p) =>
+            //        {
+            //            Debug.WriteLine("Dismissed");
+            //        };
 
-                    MainPage = new NavigationPage(mPage);
-                }
-                else
-                {
-                    MainPage = new NoInternet();
-                }
-            }
-            catch (IOException ex)
-            {
-                Crashes.TrackError(ex);
-            }
+            //        MainPage = new NavigationPage(mPage);
+            //    }
+            //    else
+            //    {
+            //        MainPage = new NoInternet();
+            //    }
+            //}
+            //catch (IOException ex)
+            //{
+            //    Crashes.TrackError(ex);
+            //}
         }
 
         protected override void OnResume()

@@ -31,8 +31,9 @@ namespace Ecombeta.Views
             {
                 TaskLoader.IsRunning = true;
                 LoadingOverlay.IsVisible = true;
+                var wc = new WooCommerceNET.WooCommerce.v3.WCObject(GlobalVariable.Init.rest);
                 //Displaying every order the user has made based on there id So Customer ID
-                var p = await App.WooObject.Order.GetAll(new Dictionary<string, string>
+                var p = await wc.Order.GetAll(new Dictionary<string, string>
                 {
                     {"customer", Users.CId.ToString()},
                     {"per_page", "100"}
@@ -65,13 +66,9 @@ namespace Ecombeta.Views
             try
             {
                 var btn = (Button) sender;
-
                 var a = btn.BindingContext;
-
                 var check = Convert.ToInt32(a);
-
                 SingleOrder.PassOid = check;
-
                 Navigation.PushAsync(new SingleOrder());
             }
             catch (Exception ex)

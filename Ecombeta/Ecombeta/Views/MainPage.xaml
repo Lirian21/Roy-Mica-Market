@@ -19,9 +19,10 @@
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
                     <ffimageloading:CachedImage
-                        Aspect="AspectFit"
-                        HorizontalOptions="StartAndExpand"
-                        VerticalOptions="StartAndExpand"
+                        Margin="10"
+                        Aspect="Fill"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
                         DownsampleToViewSize="true"
                         Source="{Binding .}" />
                 </DataTemplate>

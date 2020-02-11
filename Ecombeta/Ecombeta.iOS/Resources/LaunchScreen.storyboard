@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
+    <device id="retina4_0" orientation="portrait"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,19 +15,19 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw" userInteractionEnabled="NO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" image="YES"/>
                         </accessibility>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="396" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Splash">
-                                <rect key="frame" x="1" y="-6" width="415" height="771"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="396" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="MicaSplash.png" clipsSubviews="YES" clearsContextBeforeDrawing="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                <color key="tintColor" cocoaTouchSystemColor="labelColor"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0" green="0.411764705882353" blue="0.705882352941176" alpha="1"/>
+                                <color key="tintColor" colorSpace="custom" customColorSpace="sRGB" red="0.0784313725490196" green="0.439924776554108" blue="0.751335918903351" alpha="0"/>
                             </imageView>
                         </subviews>
                     </view>
@@ -37,6 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Splash" width="160" height="266.6667"/>
+        <image name="MicaSplash.png" width="6028" height="8192"/>
     </resources>
+    <color key="tintColor" colorSpace="custom" customColorSpace="sRGB" red="0.0392156876623631" green="0.376470595598221" blue="1" alpha="0"/>
 </document>

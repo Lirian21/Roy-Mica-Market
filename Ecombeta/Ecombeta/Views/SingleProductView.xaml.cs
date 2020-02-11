@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Ecombeta.Models;
@@ -15,7 +17,7 @@ using Xamarin.Forms.Xaml;
 namespace Ecombeta.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SingleProductView : ContentPage
+    public partial class SingleProductView : ContentPage, INotifyPropertyChanged
     {
         public static WooCommerceNET.WooCommerce.v3.VariationImage Img;
         public static bool FlashSale;
@@ -33,7 +35,7 @@ namespace Ecombeta.Views
         public string Title { get; set; }
         public string CustomEmail { set; get; }
         public int Index { get; set; }
-        public double ProductQuantity { get; set; }
+      
         public decimal TemporaryPrice { get; set; }
         public object Increment { get; set; }
         public decimal PriceProcessing { get; set; }
@@ -47,11 +49,47 @@ namespace Ecombeta.Views
         public int VarId { get; set; }
         public double DynamicPrice { get; set; }
 
+        public bool SetMinQ;
+
+        private double _ProductQuantity;
+
+        public double ProductQuantity
+    {
+            get => _ProductQuantity;
+            set
+            {
+                if (_ProductQuantity == value) return;
+                _ProductQuantity = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+        private void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            try
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+            }
+        }
+
         public SingleProductView()
         {
             try
             {
                 InitializeComponent();
+             
                 Pageback.BackgroundImageSource = "https://mm-app.co.za/wp-content/uploads/2019/12/Bluepoly.jpg";
                 InitAsync();
             }
@@ -71,6 +109,9 @@ namespace Ecombeta.Views
         {
             try
             {
+                TaskLoader.IsRunning = true;
+                LoadingOverlay.IsVisible = true;
+
                 var wc = new WooCommerceNET.WooCommerce.v3.WCObject(GlobalVariable.Init.rest);
                 Index = 0;
                 ProductQuantity = 0;
@@ -92,28 +133,11 @@ namespace Ecombeta.Views
                 Crashes.TrackError(ex);
             }
 
-            try
-            {
-                var indexer = 0;
-                foreach (var item in SProduct.meta_data)
-                    if (item.key == "group_of_quantity")
-                    {
-                        if (item.value is string stringValue && string.IsNullOrWhiteSpace(stringValue) ||
-                            item.value == null) item.value = 1;
-                        ProductQuantity = Convert.ToDouble(item.value);
-                    }
-                    else if (indexer <= 4)
-                    {
-                        indexer++;
-                    }
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-            }
+      
 
             try
             {
+
                 if (SProduct.stock_quantity <= 0)
                 {
                     TempStockQ = 2;
@@ -144,9 +168,123 @@ namespace Ecombeta.Views
 
             try
             {
+
+                foreach (var item in SProduct.meta_data)
+                {
+                    if (item.key == "maximum_allowed_quantity")
+                    {
+                        if (item.value is string stringValue && string.IsNullOrWhiteSpace(stringValue))
+                        {
+                            item.value = TempStockQ;
+                        }
+                    }
+                    else if (item.key == "group_of_quantity")
+                    {
+                      
+
+                        if (item.value is string stringValue && string.IsNullOrWhiteSpace(stringValue) ||
+                            item.value == null) {
+                            item.value = 1;
+                            SProduct.download_limit = 1;
+                        }
+                        else
+                        {
+                            SProduct.download_limit = Convert.ToInt32(item.value);
+                            _ProductQuantity = Convert.ToDouble(item.value);
+                            TempIncrementQ = Convert.ToInt32(item.value);
+                        }
+                       
+                    }
+                    else if (item.key == "minimum_allowed_quantity")
+                    {
+                        if (item.value.ToString() is string stringValue && string.IsNullOrWhiteSpace(stringValue))
+                        {
+                            SProduct.download_expiry = 1;
+                        }
+                        else
+                        {
+                            SProduct.download_expiry = Convert.ToInt32(item.value);
+                            TempMinQ = Convert.ToInt32(item.value);
+                        }
+                      
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+            }
+            try
+            {
                 foreach (var item in VarProduct)
                 {
-                    var StockQ = Convert.ToInt32(SProduct.stock_quantity);
+                   
+                    item.download_limit = 1;
+                    foreach (var metaItem in item.meta_data)
+                    {
+                        if (metaItem.key == "group_of_quantity" || metaItem.key == "variation_group_of_quantity")
+                        {
+                            if (metaItem.value.ToString() is string stringCompareValue && string.IsNullOrWhiteSpace(stringCompareValue) || metaItem.value == null || Convert.ToInt32(metaItem.value) == 0)
+                            {
+                                item.download_limit = 1;
+
+                                ProductQuantity = 1;
+                            }
+                            else if (metaItem.value == null || Convert.ToInt32(metaItem.value) == 0|| metaItem.value.ToString() is string Check && !string.IsNullOrWhiteSpace(Check))
+                            {
+                                TempIncrementQ = Convert.ToInt32(metaItem.value);
+                                item.download_limit = Convert.ToInt32(metaItem.value);
+                                ProductQuantity = Convert.ToDouble(metaItem.value);
+                                if (SetMinQ)
+                                {
+                                    TempMinQ = TempIncrementQ;
+                                }
+                            }
+                         
+                        }
+                        else if (metaItem.key == "variation_minimum_allowed_quantity" || metaItem.key == "minimum_allowed_quantity")
+                        {
+                       
+                            if (metaItem.value.ToString() is string Checkmin && string.IsNullOrWhiteSpace(Checkmin) || metaItem.value == null)
+                            {
+                                metaItem.value = 1;
+                                item.download_expiry = 1;
+                                if (TempIncrementQ != 0)
+                                {
+                                    TempMinQ = TempIncrementQ;
+                                }
+                                else
+                                {
+                                    SetMinQ = true;
+                                }
+                             
+                            }
+                            else
+                            {
+                                item.download_expiry = Convert.ToInt32(metaItem.value);
+                                TempMinQ = Convert.ToInt32(metaItem.value);
+                            }
+                        }
+                        else if (metaItem.key == "variation_maximum_allowed_quantity" || metaItem.key == "maximum_allowed_quantity")
+                        {
+                            if (metaItem.value.ToString() is string Checkmin && string.IsNullOrWhiteSpace(Checkmin))
+                            {
+                                item.stock_quantity = 99999999;
+                            }
+                            else if(metaItem.value == null)
+                            {
+                                item.stock_quantity = 99999999;
+                            }
+                            else
+                            {
+                                item.stock_quantity = Convert.ToInt32(metaItem.value);
+                            }
+                        }
+
+                    }
+                           
+                    var StockQ = Convert.ToInt32(item.stock_quantity);
                     if (item.stock_quantity <= 0)
                     {
                         TempStockQ = 2;
@@ -161,7 +299,7 @@ namespace Ecombeta.Views
                         TempIsAvb = "In Stock";
                         //If Stock is null it means unlimited so 9999999 will be per purchase instance
                         var i = 999999;
-                        SProduct.stock_quantity = i;
+                        item.stock_quantity = i;
                     }
 
                     if (item.meta_data[2].value == null)
@@ -253,6 +391,8 @@ namespace Ecombeta.Views
                         variablelistview.ItemsSource = VarProduct;
                     }
                 }
+                TaskLoader.IsRunning = true;
+                LoadingOverlay.IsVisible = true;
             }
             catch (Exception ex)
             {
@@ -321,9 +461,7 @@ namespace Ecombeta.Views
                                 TempStockQ = Convert.ToDouble(stockq);
                             }
 
-                            TempMinQ = cp.meta_data[1].value.ToString() == ""
-                                ? 1
-                                : Convert.ToInt32(cp.meta_data[1].value);
+                           
                             TempIncrementQ = cp.meta_data.Count() >= 3
                                 ? Convert.ToInt32(cp.meta_data[2].value)
                                 : TempMinQ;
@@ -356,36 +494,10 @@ namespace Ecombeta.Views
                             Convert.ToDecimal(SProduct.price);
                     }
 
-                    if (Convert.ToInt32(SProduct.meta_data[1].value) == 0)
-                    {
-                        TempMinQ = 1;
-                    }
-                    else
-                    {
-                        if (SProduct.meta_data[index1].key == "minimum_allowed_quantity")
-                        {
-                            TempMinQ =
-                                Convert.ToInt32(SProduct.meta_data[index1].value);
-                        }
-                        else
-                        {
-                            index1++;
-                            TempMinQ =
-                                Convert.ToInt32(SProduct.meta_data[index1].value);
-                        }
-                    }
+                   
+               
 
-                    if (SProduct.meta_data[index2].key == "group_of_quantity")
-                    {
-                        TempIncrementQ =
-                            Convert.ToInt32(SProduct.meta_data[index2].value);
-                    }
-                    else
-                    {
-                        index2++;
-                        TempIncrementQ =
-                            Convert.ToInt32(SProduct.meta_data[index2].value);
-                    }
+                   
 
                     ImgSource = SProduct.images[0].src;
                 }

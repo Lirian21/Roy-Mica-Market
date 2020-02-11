@@ -49,7 +49,7 @@ namespace Ecombeta.Models
             {
                 if (_message == value) return;
                 _message = value;
-                RaisePropertyChanged();
+               
             }
         }
 

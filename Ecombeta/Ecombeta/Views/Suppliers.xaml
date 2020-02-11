@@ -10,7 +10,7 @@
 
 
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <Grid>
             <StackLayout
                 x:Name="LoadingOverlay"
                 IsVisible="False"
@@ -70,6 +70,6 @@
                     </flv:FlowListView>
                 </FlexLayout>
             </StackLayout>
-        </AbsoluteLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

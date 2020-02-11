@@ -13,7 +13,7 @@ namespace Ecombeta.Droid
         {
             try
             {
-                Thread.Sleep(300);
+                Thread.Sleep(200);
                 base.OnCreate(savedInstanceState);
                 StartActivity(typeof(MainActivity));
                 Finish();

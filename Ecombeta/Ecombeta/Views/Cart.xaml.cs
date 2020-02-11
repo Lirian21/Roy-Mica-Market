@@ -374,6 +374,7 @@ namespace Ecombeta.Views
 
         private async Task VariableCheck()
         {
+            //TODO if your seeing this, Your probably Developing on this now, if you're... Run! Honestly Run...
             try
             {
                 foreach (var CartItem in _simpleCartlist)
