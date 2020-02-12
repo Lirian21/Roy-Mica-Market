@@ -1,30 +1,30 @@
-﻿<Properties StartupConfiguration="{4E168FFD-E7E7-478F-9756-7EB9043D01A2}|Default">
+﻿<Properties StartupConfiguration="{6C1B28F2-D6C7-47EE-8B14-BC2345E69A84}|Default">
   <MonoDevelop.Ide.ItemProperties.Ecombeta.Android PreferredExecutionTarget="Android.4TE7N16617000755" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs">
     <Files>
-      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml" Line="132" Column="82" IsPinned="True" />
-      <File FileName="Ecombeta/Ecombeta/Models/VariableListings.cs" Line="69" Column="6" />
-      <File FileName="Ecombeta/Ecombeta/Views/Suppliers.xaml" Line="13" Column="6" />
+      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml" Line="16" Column="23" IsPinned="True" />
+      <File FileName="Ecombeta/Ecombeta/Models/VariableListings.cs" />
+      <File FileName="Ecombeta/Ecombeta/Views/Suppliers.xaml" Line="33" Column="60" />
       <File FileName="Ecombeta/Ecombeta/Services/WoocommerceAPI.cs" />
       <File FileName="Ecombeta/Ecombeta/Views/FlashSales.xaml.cs" />
-      <File FileName="Ecombeta/Ecombeta/App.xaml.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/Cart.xaml.cs" Line="55" Column="46" />
-      <File FileName="Ecombeta/Ecombeta/Views/Flashcart.xaml.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/OrderList.xaml" />
-      <File FileName="Ecombeta/Ecombeta.iOS/ViewCellRendererForiOS.cs" Line="17" Column="1" />
-      <File FileName="Ecombeta/Ecombeta.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/App.xaml.cs" Line="61" Column="61" />
+      <File FileName="Ecombeta/Ecombeta/Views/Cart.xaml.cs" />
+      <File FileName="Ecombeta/Ecombeta/Views/Flashcart.xaml.cs" Line="39" Column="49" />
+      <File FileName="Ecombeta/Ecombeta/Views/OrderList.xaml" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta.iOS/ViewCellRendererForiOS.cs" />
+      <File FileName="Ecombeta/Ecombeta.iOS/Main.cs" />
       <File FileName="Ecombeta/Ecombeta/Views/Flashcart.xaml" />
-      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" />
+      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml.cs" Line="20" Column="13" />
       <File FileName="Ecombeta/Ecombeta/Models/Cart.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/Suppliers.xaml.cs" Line="65" Column="13" />
+      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/Suppliers.xaml.cs" Line="65" Column="16" />
       <File FileName="Ecombeta/Ecombeta/Views/Products.xaml.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/OrderList.xaml.cs" Line="29" Column="10" />
+      <File FileName="Ecombeta/Ecombeta/Views/OrderList.xaml.cs" Line="41" Column="1" />
       <File FileName="Ecombeta/Ecombeta/Views/Gala.xaml.cs" />
       <File FileName="Ecombeta/Ecombeta/Models/WpApiCredentials.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/Cart.xaml" Line="82" Column="76" />
+      <File FileName="Ecombeta/Ecombeta/Views/Cart.xaml" />
       <File FileName="Ecombeta/Ecombeta/Models/FlashCartlist.cs" />
-      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" Line="34" Column="54" />
+      <File FileName="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" Line="113" Column="45" />
       <File FileName="Ecombeta/Ecombeta.iOS/Info.plist" />
       <File FileName="Ecombeta/Ecombeta.iOS/AppDelegate.cs" />
       <File FileName="Ecombeta/Ecombeta.iOS/Entitlements.plist" />
@@ -33,17 +33,24 @@
       <File FileName="Ecombeta/Ecombeta.iOS/Renderers/BorderlessEntryRenderer.cs" />
       <File FileName="Ecombeta/Ecombeta.iOS/Resources/LaunchScreen.storyboard" />
       <File FileName="Ecombeta/Ecombeta.iOS/Resources/IC9.png" />
-      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml" />
+      <File FileName="Ecombeta/Ecombeta/Views/MainPage.xaml" Line="21" Column="48" />
       <File FileName="Ecombeta/Ecombeta/Views/NoInternet.xaml" />
       <File FileName="Ecombeta/Ecombeta.Android/SplashActivity.cs" />
-      <File FileName="Ecombeta/Ecombeta.Android/MainApplication.cs" />
-      <File FileName="Ecombeta/Ecombeta.Android/MainActivity.cs" />
+      <File FileName="Ecombeta/Ecombeta.Android/MainApplication.cs" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta.Android/MainActivity.cs" Line="1" Column="1" />
       <File FileName="Ecombeta/Ecombeta.Android/Resources/drawable/Splash.png" />
-      <File FileName="Ecombeta/Ecombeta.Android/Resources/AboutResources.txt" />
-      <File FileName="Ecombeta/Ecombeta.Android/Resources/Resource.designer.cs" />
-      <File FileName="Ecombeta/Ecombeta.Android/Properties/AndroidManifest.xml" />
+      <File FileName="Ecombeta/Ecombeta.Android/Resources/AboutResources.txt" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta.Android/Resources/Resource.designer.cs" Line="18628" Column="1" />
       <File FileName="Ecombeta/Ecombeta.Android/Properties/AssemblyInfo.cs" />
-      <File FileName="Ecombeta/Ecombeta.Android/Resources/values/styles.xml" />
+      <File FileName="Ecombeta/Ecombeta.Android/Resources/values/styles.xml" Line="2" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/FlashSales.xaml" Line="66" Column="21" />
+      <File FileName="Ecombeta/Ecombeta.Android/Properties/AndroidManifest.xml" Line="2" Column="116" />
+      <File FileName="../../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Aapt2.targets" Line="155" Column="3" />
+      <File FileName="../../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="3255" Column="2" />
+      <File FileName="../../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.D8.targets" Line="81" Column="5" />
+      <File FileName="Ecombeta/Ecombeta/Views/Home.xaml" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/SignUpPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -58,9 +65,11 @@
                 <Node name="Login.xaml" expanded="True" />
                 <Node name="MainPage.xaml" expanded="True" />
                 <Node name="OrderList.xaml" expanded="True" />
-                <Node name="SingleProductView.xaml" expanded="True">
-                  <Node name="SingleProductView.xaml.cs" selected="True" />
+                <Node name="SignUpPage.xaml" expanded="True" />
+                <Node name="SingleOrder.xaml" expanded="True">
+                  <Node name="SingleOrder.xaml.cs" selected="True" />
                 </Node>
+                <Node name="SingleProductView.xaml" expanded="True" />
                 <Node name="Suppliers.xaml" expanded="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
@@ -84,17 +93,17 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Ecombeta.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.975d3e76012e3c4871303e1126bdd77c5b6b362f" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="534" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="549" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="561" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="571" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="582" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="203" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="200" column="1" />
-      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="202" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="564" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="635" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleProductView.xaml.cs" line="675" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/OrderList.xaml.cs" relfile="Ecombeta/Ecombeta/Views/OrderList.xaml.cs" line="36" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/OrderList.xaml.cs" relfile="Ecombeta/Ecombeta/Views/OrderList.xaml.cs" line="41" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" line="34" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" line="32" column="1" />
+      <Breakpoint file="/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" relfile="Ecombeta/Ecombeta/Views/SingleOrder.xaml.cs" line="31" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

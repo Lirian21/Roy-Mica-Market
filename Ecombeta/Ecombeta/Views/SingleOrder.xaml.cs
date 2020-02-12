@@ -1,4 +1,5 @@
 ﻿using System;
+using Ecombeta.Models;
 using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,7 +29,8 @@ namespace Ecombeta.Views
         {
             try
             {
-                var p = await App.WooObject.Order.Get(PassOid);
+                var wc = new WooCommerceNET.WooCommerce.v3.WCObject(GlobalVariable.Init.rest);
+                var p = await wc.Order.Get(PassOid);
                 SingleOrderList.ItemsSource = new[] {p};
 
                 Lineorders.ItemsSource = p.line_items;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using DLToolkit.Forms.Controls;
 using Ecombeta.Models;
 using Ecombeta.Services;
@@ -44,10 +45,10 @@ namespace Ecombeta
                    MainPage = new NavigationPage(mPage);
 
 
-                    CrossFirebasePushNotification.Current.Subscribe("general");
+                   CrossFirebasePushNotification.Current.Subscribe("general");
                     CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
                     {
-                        Debug.WriteLine($"TOKEN REC: {p.Token}");
+                         Debug.WriteLine($"TOKEN REC: {p.Token}");
                     };
 
                  
@@ -126,7 +127,7 @@ namespace Ecombeta
 
         public static bool IsConnected { get; set; }
 
-        public static void MakeWebRequest()
+        public static void  MakeWebRequest()
         {
             if (!CrossConnectivity.Current.IsConnected)
                 //You are offline, notify the user
@@ -254,8 +255,6 @@ namespace Ecombeta
             //Debug.WriteLine("OnSleep");
             //try
             //{
-            //    if (IsConnected)
-            //    {
             //        mPage = new Home();
 
             //        MainPage = new NavigationPage(mPage);
@@ -266,23 +265,29 @@ namespace Ecombeta
             //            Debug.WriteLine($"TOKEN REC: {p.Token}");
             //        };
 
-            //        CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
-            //        {
-            //            try
-            //            {
-            //                Debug.WriteLine("Received");
-            //                if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
-            //                    Device.BeginInvokeOnMainThread(() =>
-            //                    {
-            //                        HomeVariables.Init.Message = $"{p.Data["body"]}";
-            //                        HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
-            //                    });
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                Crashes.TrackError(ex);
-            //            }
-            //        };
+            MakeWebRequest();
+
+            if (IsConnected)
+            {
+                CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
+                {
+                    try
+                    {
+                        Debug.WriteLine("Received");
+                        if (p.Data.ContainsKey("body") && p.Data.ContainsKey("title"))
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                HomeVariables.Init.Message = $"{p.Data["body"]}";
+                                HomeVariables.Init.TitleMessage = $"{p.Data["title"]}";
+                            });
+                    }
+                    catch (Exception ex)
+                    {
+                        Crashes.TrackError(ex);
+                    }
+                };
+            }
+        
             //        CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
             //        {
             //            //System.Diagnostics.Debug.WriteLine(p.Identifier);
@@ -317,11 +322,23 @@ namespace Ecombeta
 
         protected override void OnResume()
         {
+
+            MakeWebRequest();
+
+            if (!IsConnected)
+            {
+                MainPage = new NoInternet();
+            }
+            else
+            {
+
+            }
 #if DEBUG
+
             Vibration.Vibrate();
             Debug.WriteLine("OnResume");
 #endif
-        }
+            }
 
 
         public static void SetDatailPage(Page page)

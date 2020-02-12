@@ -12,23 +12,24 @@
              x:Class="Ecombeta.Views.MainPage">
     <ContentPage.Content>
 
-
-        <controls:CarouselViewControl ShowIndicators="True" IndicatorsShape="Circle" Orientation="Horizontal"
+        <StackLayout VerticalOptions="FillAndExpand" Spacing="0"
+                                      HorizontalOptions="FillAndExpand">
+        <controls:CarouselViewControl ShowIndicators="True" IndicatorsShape="Circle"  Orientation="Horizontal"
                                       x:Name="Carouselview" VerticalOptions="FillAndExpand"
                                       HorizontalOptions="FillAndExpand">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
                     <ffimageloading:CachedImage
-                        Margin="10"
-                        Aspect="Fill"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand"
-                        DownsampleToViewSize="true"
+                        
+                        Aspect="AspectFit"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        DownsampleToViewSize="False"
                         Source="{Binding .}" />
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>
-
+            </StackLayout>
 
     </ContentPage.Content>
 </ContentPage>

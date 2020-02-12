@@ -35,6 +35,8 @@ namespace Ecombeta.Views
             InitializeComponent();
             try
             {
+                TaskLoader.IsRunning = true;
+                LoadingOverlay.IsVisible = true;
                 spam = false;
                 Backgroundimage.BackgroundImageSource =
                     "https://mm-app.co.za/wp-content/uploads/2019/12/OrangeBluepoly.jpg";

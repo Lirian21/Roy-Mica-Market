@@ -109,6 +109,7 @@ namespace Ecombeta.Views
         {
             try
             {
+             
                 TaskLoader.IsRunning = true;
                 LoadingOverlay.IsVisible = true;
 
@@ -124,7 +125,7 @@ namespace Ecombeta.Views
                 if (VarProduct != null && (VarProduct != null) |
                     (VarProduct.Count != 0))
                     TempId = SingleId;
-                // NOt to sure how Threading works but I want this to run on its own Thread as its somewhat intense || Cant Test this but Hoping this calls the Method and Starts it on a new thread then auto kills it self when its done
+
                 var sThread = new Thread(StringReplace);
                 sThread.Start();
             }
@@ -391,8 +392,8 @@ namespace Ecombeta.Views
                         variablelistview.ItemsSource = VarProduct;
                     }
                 }
-                TaskLoader.IsRunning = true;
-                LoadingOverlay.IsVisible = true;
+                TaskLoader.IsRunning = false;
+                LoadingOverlay.IsVisible = false;
             }
             catch (Exception ex)
             {
@@ -671,7 +672,7 @@ namespace Ecombeta.Views
                     }
                     else
                     {
-                        oldlitz.Add(new CartList
+                            oldlitz.Add(new CartList
                         {
                             StockStatus = TempStockStatus,
                             StockQuantity = Convert.ToInt32(TempStockQ),

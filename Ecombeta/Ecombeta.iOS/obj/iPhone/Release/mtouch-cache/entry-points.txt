@@ -1,0 +1,216 @@
+Function=SystemNative_ConvertErrorPlatformToPal
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_ConvertErrorPalToPlatform
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_StrErrorR
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_GetNonCryptographicallySecureRandomBytes
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_OpenDir
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_GetReadDirRBufferSize
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_ReadDirR
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_CloseDir
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_ReadLink
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_Stat2
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_LStat2
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_Symlink
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_CopyFile
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_GetEGid
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_GetEUid
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_Link
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_MkDir
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_Rename
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_RmDir
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=SystemNative_Unlink
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_timezone_get_local_name
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_timezone_get_data
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_GetFolderPath
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_log
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_start_wwan
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/System.dll
+Function=xamarin_find_protocol_wrapper_type
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_release_block_on_main_thread
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_get_block_descriptor
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_IntPtr_objc_msgSend_IntPtr
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_IntPtr_objc_msgSendSuper_IntPtr
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=UIApplicationMain
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Xamarin.iOS.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRMessagingMessageInfo
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+Field=FIRMessagingConnectionStateChangedNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+Field=FIRMessagingMessagesDeletedNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+Field=FIRMessagingRegistrationTokenRefreshedNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+Field=FIRMessagingSendErrorNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+Field=FIRMessagingSendSuccessNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRMessaging
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRMessagingExtensionHelper
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRMessagingRemoteMessage
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.CloudMessaging.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRApp
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Core.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRConfiguration
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Core.dll
+ObjectiveCClass=OBJC_CLASS_$_FIROptions
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Core.dll
+Field=kFIRInstanceIDScopeFirebaseMessaging
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.InstanceID.dll
+Field=kFIRInstanceIDTokenRefreshNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.InstanceID.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRInstanceID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.InstanceID.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRInstanceIDResult
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.InstanceID.dll
+ObjectiveCClass=OBJC_CLASS_$_MSCrashes
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSErrorAttachmentLog
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSErrorReport
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSException
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSStackFrame
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSWrapperCrashesHelper
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSWrapperException
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSWrapperExceptionManager
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Crashes.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSAppCenter
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSCustomProperties
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSDevice
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSLogger
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSServiceAbstract
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSWrapperLogger
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSWrapperSdk
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSAnalytics
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Analytics.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSEventLog
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Analytics.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSLogWithProperties
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Analytics.iOS.Bindings.dll
+ObjectiveCClass=OBJC_CLASS_$_MSPageLog
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Microsoft.AppCenter.Analytics.iOS.Bindings.dll
+Field=FirebaseAuthVersionNum
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRAuthErrorDomain
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRAuthErrorUserInfoEmailKey
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRAuthErrorUserInfoNameKey
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRAuthErrorUserInfoUpdatedCredentialKey
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRAuthStateDidChangeNotification
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FirebaseAuthVersionStr
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRAuth
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRActionCodeInfo
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRActionCodeSettings
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRAdditionalUserInfo
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRAuthCredential
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRAuthDataResult
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRAuthSettings
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRAuthTokenResult
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIREmailAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIREmailPasswordAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIREmailAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRFacebookAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRFacebookAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRFacebookAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRGameCenterAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRGameCenterAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRGameCenterAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRGitHubAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRGitHubAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRGitHubAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRGoogleAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRGoogleAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRGoogleAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIROAuthCredential
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIROAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRPhoneAuthCredential
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRPhoneAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRPhoneAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRPhoneAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRTwitterAuthProviderID
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+Field=FIRTwitterAuthSignInMethod
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRTwitterAuthProvider
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRUser
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRUserMetadata
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
+ObjectiveCClass=OBJC_CLASS_$_FIRUserProfileChangeRequest
+	/Users/imac/Desktop/Roy new/Create Repositoru/Publish Attempt/Roy-Mica-Market/Ecombeta/Ecombeta.iOS/obj/iPhone/Release/mtouch-cache/1-Link/Firebase.Auth.dll
